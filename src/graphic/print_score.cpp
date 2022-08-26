@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 23:39:33 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/26 23:16:41 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/26 23:23:40 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static void print_username(const score &s, const size_t i)
 		attrset(A_BOLD);
 	}
 	else
-		mvaddstr(3 + i, 7, s.s[s.sort[i]].username);
+		mvaddstr(3 + i, 7, s.s[s.sort[i]].username.c_str());
 }
 
 void	graphic::print_header_score(const env &e)

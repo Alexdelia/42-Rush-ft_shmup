@@ -6,108 +6,121 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 15:55:46 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/26 23:03:51 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/27 00:33:20 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shmup.hpp"
 
-static bool	write_score(t_env *e, char *username, const int fd)
-{
-	char	*tmp;
+#include <string.h>
 
-	tmp = ft_sttoa(e->score);
-	if (!tmp)
-		return (false);
-	ft_putstr_fd(tmp, fd);
-	free(tmp);
-	ft_putstr_fd(" ", fd);
-	tmp = ft_sttoa(e->top);
-	if (!tmp)
-		return (false);
-	ft_putstr_fd(tmp, fd);
-	free(tmp);
-	ft_putstr_fd(" ", fd);
-	ft_putstr_fd(username, fd);
-	ft_putstr_fd("\n", fd);
-	close(fd);
-	return (true);
+score::score(const env &e)
+{
+	choose_score(e);	// unsure about approach
 }
 
-static void	get_username(t_env *e, char *username)
+score::~score()
+{}
+
+static bool	write_score(const env &e, std::string username, std::ofstream ofs)
 {
-	size_t	i;
+}
+
+static std::string	get_username(const env &e)
+{
+	std::string	username;
+	int			key;
+	size_t		i;
 
 	clear();
-	print_frame(e, CP_MENU);
+	graphic::print_frame(e, CP_MENU);
 	echo();
 	attrset(A_BOLD);
 	pmw(e, "Enter your name: ");
-	e->key = getch();
+
+	key = getch();
 	i = 0;
-	while (i < 100 && e->key != '\n')
+	while (key != '\n')
 	{
-		if (i > 0 && e->key == KEY_BACKSPACE)
+		if (i > 0 && key == KEY_BACKSPACE)
 			i--;
-		else if (ft_isprint(e->key))
+		else if (ft_isprint(key))
 		{
-			username[i] = (char)e->key;
+			username[i] = (char)key;
 			i++;
 		}
-		else if (is_exit(e->key) || e->key == KEY_RESIZE)
+		else if (is_exit(key) || key == KEY_RESIZE)
 			break ;
-		e->key = getch();
+		key = getch();
 	}
 	attrset(A_NORMAL);
 	username[i] = '\0';
 }
 
-bool	save_score(t_env *e)
+bool	score::save_score(const env &e)
 {
-	int		fd;
-	char	username[101];
+	std::ofstream	ofs;
+	std::string		username;
+	int				key;
+
+	if (!e.get_score())
+		return (false);
 
 	clear();
-	print_frame(e, CP_SCORE);
+	graphic::print_frame(e, CP_SCORE);
 	curs_set(1);
 	attrset(A_BOLD | COLOR_PAIR(CP_SCORE));
-	mvprintw(e->row / 2 - 3,
-		(e->col - (ft_strlen(MSG_CUR_SCORE) + 1 + ft_stlen(e->score))) / 2,
-		"%s %ld", MSG_CUR_SCORE, e->score);
-	pmw(e, "do you want to save your score");
+	mvprintw(e.get_row() / 2 - 3,
+		(e.get_col() - strlen(MSG_CUR_SCORE) + 1 + ft_stlen(e.get_score()))) / 2,
+		"%s %ld", MSG_CUR_SCORE, e.get_score());
+	pmw(e, "do you want to save your score ?");
 	attrset(A_BOLD);
-	mvaddstr(e->row / 2 + 1, (e->col - 5) / 2, "[y/n]");
-	move(e->row / 2 + 2, e->col / 2 - 1);
+	mvaddstr(e.get_row() / 2 + 1, (e.get_col() - 5) / 2, "[y/n]");
+	move(e.get_row() / 2 + 2, e.get_col() / 2 - 1);
 	attrset(A_NORMAL);
-	e->key = getch();
-	if (e->key != 'y' && e->key != 'Y' && e->key != '\n')
+
+	key = getch();
+	if (key != 'y' && key != 'Y' && key != '\n')
 		return (true);
-	get_username(e, username);
-	fd = open(SCORE_PATH, O_CREAT | O_RDWR | O_APPEND, 0664);
-	if (fd < 0)
+
+	username = get_username(e);
+	ofs.open(SCORE_PATH, std::ios::in | std::ios::out | std::ios::app | std::fstream::out);
+	if (!ofs)
 		return (false);
-	return (write_score(e, username, fd));
+	ofs << e.get_score() << ' ' << username << std::endl;
+	ofs.close();
+
+	return (true);
 }
 
-bool	score::score(const env &e)
+bool	score::choose_score(const env &e)
 {
+	this->s.clear();
+	this->sort.clear();
+
 	clear();
+	curs_set(0);
+
 	graphic::print_frame_score(e, CP_SCORE);
 	graphic::print_header_score(e);
-	if (!read_score(s))
+
+	if (!this->read_score())
 		pmw(e, "NO SCORE");
 	else
 	{
-		sort_score(s, sort);
-		print_score(e, s, sort);
+		this->sort_score();
+		graphic::print_score(e, *this);
 	}
+
 	if (getch() == KEY_RESIZE)
 	{
-		if (!resize(e))
+		if (!e.resize())
 			return (false);
-		if (!choose_score(e))
+		if (!this->choose_score(e))	// recursive recreation of score, need to handle that line
 			return (false);
 	}
+
 	curs_set(1);
+
 	return (true);
 }

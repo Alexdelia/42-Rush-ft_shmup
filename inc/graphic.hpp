@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 22:11:13 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/26 23:17:01 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/27 00:22:34 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define GRAHIC_HPP
 
 # include "shmup.hpp"
+
+# define MSG_CUR_SCORE	"SCORE"
 
 class graphic
 {
