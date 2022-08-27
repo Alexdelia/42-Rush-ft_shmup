@@ -6,30 +6,36 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 12:16:16 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 13:02:59 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/27 14:00:42 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.hpp"
 
-void	env::add_entity(entity e)
+void	env::_add_entity(entity e)
 {
 	this->_entities[this->_next_id++] = e;
 }
 
-void	env::add_entities(const std::vector<entity> &entities)
+void	env::_add_entities(const std::vector<entity> &entities)
 {
 	for (std::vector<entity>::const_iterator it = entities.begin(); it != entities.end(); ++it)
-		this->add_entity(*it);
+		this->_add_entity(*it);
 }
 
-void	env::delete_entity(const size_t id)
+void	env::_delete_entity(const size_t id)
 {
 	this->_entities.erase(id);
 }
 
-void	env::delete_entities(const std::vector<size_t> &ids)
+void	env::_delete_out_of_bound()
 {
-	for (std::vector<size_t>::const_iterator it = ids.begin(); it != ids.end(); ++it)
-		this->delete_entity(*it);
+	for (std::unordered_map<size_t, entity>::iterator it = this->_entities.begin(); it != this->_entities.end(); ++it)
+	{
+		if (it->second.get_row() >= this->_win_row
+			|| it->second.get_col() >= this->_win_col
+			|| it->second.get_row() < 0
+			|| it->second.get_col() < 0)
+			this->_delete_entity(it->first);
+	}
 }

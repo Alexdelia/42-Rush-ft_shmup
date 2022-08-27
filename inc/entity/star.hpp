@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   shmup.hpp                                          :+:      :+:    :+:   */
+/*   star.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/26 21:52:52 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 14:45:04 by adelille         ###   ########.fr       */
+/*   Created: 2022/08/27 13:16:08 by adelille          #+#    #+#             */
+/*   Updated: 2022/08/27 14:59:03 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHMUP_HPP
-# define SHMUP_HPP
+#pragma once
 
-# define FPS		10
+#include "entity.hpp"
 
-# define KEY_ESCAPE	27
-# define KEY_CC		3
-# define KEY_CD		4
-
-#include <ncurses.h>
-
-bool	is_exit(const int key);
-
-#endif
+class star: public entity
+{
+	public:
+		star(const size_t col);
+		virtual ~star();
+	
+	protected:
+		virtual void	_process();
+};

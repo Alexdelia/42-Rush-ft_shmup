@@ -6,14 +6,16 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 21:50:06 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 12:23:29 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/27 14:38:58 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.hpp"
 
 env::env(): _win_row(0), _win_col(0), _next_id(0), _entities()
-{}
+{
+	srand(time(NULL));
+}
 
 env::~env()
 {
@@ -27,6 +29,7 @@ bool env::init(void)
 	raw();
 	noecho();
 	keypad(stdscr, TRUE);
+	nodelay(stdscr, TRUE);
 	//curs_set(0);	// set after menu
 	
 	/*if (!graphic::init_color())

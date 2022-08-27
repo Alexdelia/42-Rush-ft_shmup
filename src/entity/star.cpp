@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   shmup.hpp                                          :+:      :+:    :+:   */
+/*   star.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/26 21:52:52 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 14:45:04 by adelille         ###   ########.fr       */
+/*   Created: 2022/08/27 13:16:00 by adelille          #+#    #+#             */
+/*   Updated: 2022/08/27 14:58:06 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHMUP_HPP
-# define SHMUP_HPP
+#include "entity/star.hpp"
 
-# define FPS		10
+star::star(const size_t col): entity(0, col, -1, 1, 0, ".", 0)
+{}
 
-# define KEY_ESCAPE	27
-# define KEY_CC		3
-# define KEY_CD		4
+star::~star()
+{}
 
-#include <ncurses.h>
-
-bool	is_exit(const int key);
-
-#endif
+void	star::_process()
+{
+	mvaddstr(51, 0, "star::process()");
+	this->set_row(this->get_row() + 1);
+}
