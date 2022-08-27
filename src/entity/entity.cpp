@@ -62,8 +62,10 @@ entity &entity::operator=(const entity &rhs)
 	}
 }*/
 
-void	entity::process()
-{}
+void	entity::process(env &e)
+{
+	(void)e;
+}
 
 std::vector<entity>	entity::spawner()
 {

@@ -14,10 +14,13 @@
 # define ENTITY_HPP
 
 #include "../shmup.hpp"
+#include "../env.hpp"
 
 #include <iostream>
 #include <string>
 #include <vector>
+
+class env;
 
 class entity
 {
@@ -52,7 +55,7 @@ class entity
 		void	set_row(const int row);
 		void	set_col(const int col);
 
-		virtual void				process();
+		virtual void				process(env &e);
 		virtual std::vector<entity>	spawner();
 };
 

@@ -19,7 +19,8 @@ star::star(const size_t col): entity(0, col, -1, 1, 0, "⭐", CP_SCORE)
 star::~star()
 {}
 
-void	star::process()
+void	star::process(env &e)
 {
+	(void)e;
 	this->set_row(this->get_row() + 1);
 }

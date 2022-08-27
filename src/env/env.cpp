@@ -13,7 +13,7 @@
 #include "env.hpp"
 #include "graphic.hpp"
 
-env::env(): _win_row(0), _win_col(0), _entities()
+env::env(): _win_row(0), _win_col(0), _tick(0), _score(0), _entities()
 {
 	srand(time(NULL));
 }
@@ -41,4 +41,8 @@ bool env::init(void)
 		return (endwin(), false);
 
 	return (true);
+}
+
+size_t	env::get_tick() const {
+	return this->_tick;
 }
