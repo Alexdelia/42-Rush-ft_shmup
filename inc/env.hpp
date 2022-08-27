@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 21:31:18 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 17:47:26 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/27 22:42:09 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define ENV_HPP
 
 #include "entity/entity.hpp"
+#include "player.hpp"
 
 #include <ncurses.h>
 #include <vector>
@@ -26,6 +27,8 @@
 
 class entity;
 
+class player;
+
 class env
 {
 	private:
@@ -34,12 +37,11 @@ class env
 		size_t 	_tick;
 		size_t	_score;
 		std::unordered_set<entity *>	_entities;
+		player							*_player;
 
 	public:
 		env();
 		~env();
-
-		//int	key;
 
 		bool	init();
 		bool	resize();
@@ -64,6 +66,8 @@ class env
 		void	_delete_entity(entity *e);
 		void	_delete_entities();
 		void	_delete_out_of_bound();
+
+		void	_handle_input(const int key);
 };
 
 #endif

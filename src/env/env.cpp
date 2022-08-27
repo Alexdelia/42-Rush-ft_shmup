@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 21:50:06 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 17:47:30 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/27 22:43:41 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ bool env::init(void)
 	raw();
 	noecho();
 	keypad(stdscr, TRUE);
+	set_escdelay(0);
 	nodelay(stdscr, TRUE);
 	//curs_set(0);	// set after menu
 	
@@ -39,6 +40,9 @@ bool env::init(void)
 
 	if (!this->resize())
 		return (endwin(), false);
+	
+	this->_player = new player(this->_win_row, this->_win_col);
+	this->_add_entity(this->_player);
 
 	return (true);
 }
