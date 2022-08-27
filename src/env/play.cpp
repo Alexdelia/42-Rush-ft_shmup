@@ -55,9 +55,9 @@ void	env::play()
 		this->_delete_out_of_bound();
 
 		// spawn stars
-		const size_t r = rand_n_spawn(this->_win_col, 100, 200);
-		for (size_t i = 0; i < r; i++)
-			this->_add_entity(new star(rand() % this->_win_col));
+		// const size_t r = rand_n_spawn(this->_win_col, 100, 200);
+		// for (size_t i = 0; i < r; i++)
+		// 	this->_add_entity(new star(rand() % this->_win_col));
 
 		const size_t r_asteroids = rand_n_spawn(this->_win_col, 0, 20);
 		for (size_t i = 0; i < r_asteroids; i++)
