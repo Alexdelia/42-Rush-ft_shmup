@@ -6,11 +6,12 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 13:45:59 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 12:03:54 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/27 13:07:53 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shmup.hpp"
+#include <ncurses.h>
 
 bool	is_exit(const int key)
 {

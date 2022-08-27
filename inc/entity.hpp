@@ -6,14 +6,14 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 10:46:39 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 12:53:22 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/27 13:05:14 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef ENTITY_HPP
+# define ENTITY_HPP
 
-#include "shmup.hpp"
-
+#include <string>
 #include <vector>
 
 class entity
@@ -32,8 +32,8 @@ class entity
 		const std::string	&get_sprite() const;
 		int					get_color_pair();
 
-		virtual void				process();
-		virtual std::vector<entity>	spawner();
+		void				process();
+		std::vector<entity>	spawner();
 	
 	private:
 
@@ -48,3 +48,5 @@ class entity
 		std::string	_sprite;
 		int			_color_pair;
 };
+
+#endif

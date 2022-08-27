@@ -6,13 +6,14 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 22:11:13 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 11:30:46 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/27 13:06:59 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef GRAPHIC_HPP
+# define GRAPHIC_HPP
 
-#include "shmup.hpp"
+#include <ncurses.h>
 
 #define MSG_CUR_SCORE	"SCORE"
 
@@ -25,3 +26,5 @@ class graphic
 		graphic(const graphic &src);
 		graphic &operator=(const graphic &rhs);
 };
+
+#endif

@@ -6,15 +6,16 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 21:31:18 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 12:53:35 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/27 13:06:36 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef ENV_HPP
+# define ENV_HPP
 
-#include "shmup.hpp"
 #include "entity.hpp"
 
+#include <ncurses.h>
 #include <vector>
 #include <unordered_map>
 
@@ -56,3 +57,5 @@ class env
 		size_t	_next_id;
 		std::unordered_map<size_t, entity>	_entities;
 };
+
+#endif

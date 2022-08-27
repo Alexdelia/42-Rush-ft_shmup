@@ -6,13 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 12:16:16 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 12:50:09 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/27 13:02:59 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "shmup.hpp"
 #include "env.hpp"
-#include "entity.hpp"
 
 void	env::add_entity(entity e)
 {
