@@ -6,22 +6,66 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 22:11:13 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 13:06:59 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/27 17:48:23 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GRAPHIC_HPP
 # define GRAPHIC_HPP
 
-#include <ncurses.h>
+# include "env.hpp"
+# include "score.hpp"
 
-#define MSG_CUR_SCORE	"SCORE"
+# define MIN_WIN_ROW	42
+# define MIN_WIN_COL	42
+
+# define MSG_PLAY		"PLAY "
+# define MSG_EXIT		"EXIT "
+# define MSG_WON		"WON"
+# define MSG_LOST		"GAMEOVER"
+
+# define MSG_SCORE		"HIGHSCORE"
+# define MSG_CUR_SCORE	"SCORE"
+
+# define C_LOW_GREEN	232
+# define C_WINDOW		233
+# define C_BOARD		234
+# define COLOR_B_64		231
+# define COLOR_B_2048	230
+
+# define CP_0			1
+# define CP_GREEN		3
+# define CP_MENU		5
+# define CP_PLAY		6
+# define CP_BOARD		7
+# define CP_SCORE		9
+# define CP_EXIT		10
+# define CP_WINDOW		11
+# define CP_RED			12
+
+class score;
 
 class graphic
 {
 	public:
 		graphic();
 		~graphic();
+
+		static bool init_color(void);
+		
+		static bool	menu(env &e);
+		static void	print_menu(const env &e);
+		static void	print_frame(const int row, const int col, const int color);
+
+		static void	print_score(const env &e, const score &s);
+		static void	print_frame_score(const env &e, const int color);
+		static void	print_header_score(const env &e);
+	
+		static void		pmw(const int row, const int col, const std::string &str);
+		static bool		valid_size(const int row, const int col);
+		static void		frame_resize(const int row, const int col);
+		static size_t	ft_stlen(size_t n);
+	
 	private:
 		graphic(const graphic &src);
 		graphic &operator=(const graphic &rhs);

@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 21:31:18 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 15:15:34 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/27 17:47:26 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ class env
 		//int	key;
 
 		bool	init();
-		//bool	resize();
+		bool	resize();
 		void	play();
 		void	print_map();
 
