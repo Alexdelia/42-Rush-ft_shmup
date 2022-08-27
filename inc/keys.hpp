@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key.cpp                                            :+:      :+:    :+:   */
+/*   key.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/13 13:45:59 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 13:07:53 by adelille         ###   ########.fr       */
+/*   Created: 2022/08/27 16:18:20 by adelille          #+#    #+#             */
+/*   Updated: 2022/08/27 17:04:54 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "shmup.hpp"
+#ifndef KEYS_HPP
+# define KEYS_HPP
+
+# define KEY_ESCAPE	27
+# define KEY_CC		3
+# define KEY_CD		4
+
 #include <ncurses.h>
 
-bool	is_exit(const int key)
+class keys
 {
-	return (key == KEY_DC
-		|| key == KEY_END
-		|| key == KEY_EXIT
-		|| key == KEY_ESCAPE
-		|| key == KEY_CC
-		|| key == KEY_CD);
-}
+	public:
+		keys();
+		~keys();
+
+		static bool	is_exit(const int key);
+};
+
+#endif

@@ -6,15 +6,15 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 15:55:46 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 00:33:20 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/27 16:51:14 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "shmup.hpp"
+#include "score.hpp"
 
-#include <string.h>
+#include <climits>
 
-score::score(const env &e)
+score::score(env &e)
 {
 	choose_score(e);	// unsure about approach
 }
@@ -22,78 +22,7 @@ score::score(const env &e)
 score::~score()
 {}
 
-static bool	write_score(const env &e, std::string username, std::ofstream ofs)
-{
-}
-
-static std::string	get_username(const env &e)
-{
-	std::string	username;
-	int			key;
-	size_t		i;
-
-	clear();
-	graphic::print_frame(e, CP_MENU);
-	echo();
-	attrset(A_BOLD);
-	pmw(e, "Enter your name: ");
-
-	key = getch();
-	i = 0;
-	while (key != '\n')
-	{
-		if (i > 0 && key == KEY_BACKSPACE)
-			i--;
-		else if (ft_isprint(key))
-		{
-			username[i] = (char)key;
-			i++;
-		}
-		else if (is_exit(key) || key == KEY_RESIZE)
-			break ;
-		key = getch();
-	}
-	attrset(A_NORMAL);
-	username[i] = '\0';
-}
-
-bool	score::save_score(const env &e)
-{
-	std::ofstream	ofs;
-	std::string		username;
-	int				key;
-
-	if (!e.get_score())
-		return (false);
-
-	clear();
-	graphic::print_frame(e, CP_SCORE);
-	curs_set(1);
-	attrset(A_BOLD | COLOR_PAIR(CP_SCORE));
-	mvprintw(e.get_row() / 2 - 3,
-		(e.get_col() - strlen(MSG_CUR_SCORE) + 1 + ft_stlen(e.get_score()))) / 2,
-		"%s %ld", MSG_CUR_SCORE, e.get_score());
-	pmw(e, "do you want to save your score ?");
-	attrset(A_BOLD);
-	mvaddstr(e.get_row() / 2 + 1, (e.get_col() - 5) / 2, "[y/n]");
-	move(e.get_row() / 2 + 2, e.get_col() / 2 - 1);
-	attrset(A_NORMAL);
-
-	key = getch();
-	if (key != 'y' && key != 'Y' && key != '\n')
-		return (true);
-
-	username = get_username(e);
-	ofs.open(SCORE_PATH, std::ios::in | std::ios::out | std::ios::app | std::fstream::out);
-	if (!ofs)
-		return (false);
-	ofs << e.get_score() << ' ' << username << std::endl;
-	ofs.close();
-
-	return (true);
-}
-
-bool	score::choose_score(const env &e)
+bool	score::choose_score(env &e)
 {
 	this->s.clear();
 	this->sort.clear();
@@ -105,7 +34,7 @@ bool	score::choose_score(const env &e)
 	graphic::print_header_score(e);
 
 	if (!this->read_score())
-		pmw(e, "NO SCORE");
+		graphic::pmw(e.get_win_row(), e.get_win_col(), "NO SCORE");
 	else
 	{
 		this->sort_score();
@@ -123,4 +52,43 @@ bool	score::choose_score(const env &e)
 	curs_set(1);
 
 	return (true);
+}
+
+static size_t	index_big(score &s, const size_t big)
+{
+	size_t	i;
+	size_t	local_big;
+	size_t	index_big;
+
+	local_big = 0;
+	index_big = 0;
+	i = 0;
+	while (i < MAX_READ_SCORE && s.s[i].score > 0)
+	{
+		if (s.s[i].score > local_big && s.s[i].score < big)
+		{
+			local_big = s.s[i].score;
+			index_big = i;
+		}
+		i++;
+	}
+	if (local_big == 0)
+		return (i);
+	return (index_big);
+}
+
+void	score::sort_score()
+{
+	size_t	i;
+	size_t	big;
+
+	i = 0;
+	big = ULONG_MAX;
+	while (i < MAX_READ_SCORE && big > 0)
+	{
+		this->sort[i] = index_big(*this, big);
+		big = this->s[this->sort[i]].score;
+		i++;
+	}
+	this->sort[i] = i;
 }

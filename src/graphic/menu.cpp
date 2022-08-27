@@ -6,52 +6,58 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 19:19:51 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/26 22:52:58 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/27 18:11:45 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "shmup.h"
+#include "graphic.hpp"
+#include "keys.hpp"
 
 static bool choose_play(const env &e)
 {
+	(void)e;
 	// if want option before playing
 	//	(difficulty, map, ...)
 	return (true);
 }
 
-static bool menu_key_handle(const env &e)
+static bool menu_key_handle(env &e, int *key)
 {
-	move((e.get_row() - 1) / 2 + 3, e.get_col() / 2 - 2);
-	e.key = getch();
-	if (e.key == 'p' || e.key == 'P' || e.key == '\n')
+	move((e.get_win_row() - 1) / 2 + 3, e.get_win_col() / 2 - 2);
+	*key = getch();
+	if (*key == 'p' || *key == 'P' || *key == '\n')
 	{
 		if (!choose_play(e))
 			return (false);
+		return (true);
 	}
-	else if (e.key == 's' || e.key == 'S')
+	else if (*key == 's' || *key == 'S')
 	{
-		const score s;
-		if (!graphic::print_score(e, s))
+		score s(e);
+		graphic::print_score(e, s);
+		clear();
+		graphic::print_menu(e);
+		return (true);
+	}
+	else if (*key == KEY_RESIZE)
+	{
+		if (!e.resize())
 			return (false);
 	}
-	else if (e.key == KEY_RESIZE)
-	{
-		if (!e.resize(e))
-			return (false);
-	}
-	else
+	else if (keys::is_exit(*key))
 		return (false);
+	*key = 'z';
 	return (true);
 }
 
-bool	graphic::menu(const env &e)
+bool	graphic::menu(env &e)
 {
-	e.key = 's';
-	while (e.key == 's' || e.key == 'S' || e.key == KEY_RESIZE)
+	clear();
+	graphic::print_menu(e);
+	int	key = 'z';
+	while (key == 'z' || key == 's' || key == 'S' || key == KEY_RESIZE)
 	{
-		clear();
-		print_menu(e);
-		if (!menu_key_handle(e))
+		if (!menu_key_handle(e, &key))
 			return (false);
 	}
 
