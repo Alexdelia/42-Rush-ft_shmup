@@ -13,10 +13,13 @@
 #include "env.hpp"
 #include "shmup.hpp"
 #include "entity/star.hpp"
+#include "entity/asteroid.hpp"
+#include "entity/spaceship.hpp"
 
-static size_t rand_n_spawn(const int row, const size_t min, const size_t max)
+
+static size_t rand_n_spawn(const int col, const size_t min, const size_t max)
 {
-	return (rand() % (int)row * ((rand() % (max - min + 1)) + min) / 100);
+	return (rand() % (int)col * ((rand() % (max - min + 1)) + min) / 1000);
 }
 
 void	env::print_map()
@@ -32,10 +35,9 @@ void	env::print_map()
 void	env::play()
 {
 	int	key = 'p';
-
 	// tmp
-	this->_win_row = 42;
-	this->_win_col = 42;
+	this->_win_row = 82;
+	this->_win_col = 82;
 
 	this->print_map();
 	while (!is_exit(key))
@@ -46,18 +48,29 @@ void	env::play()
 
 		// process position and action
 		for(std::unordered_set<entity *>::iterator it = this->_entities.begin(); it != this->_entities.end(); ++it)
-			(*it)->process();
+			(*it)->process(*this);
 
 		this->_delete_out_of_bound();
 
 		// spawn stars
-		const size_t r = rand_n_spawn(this->_win_row, 10, 20);
+		const size_t r = rand_n_spawn(this->_win_col, 100, 200);
 		for (size_t i = 0; i < r; i++)
 			this->_add_entity(new star(rand() % this->_win_col));
+
+		const size_t r_asteroids = rand_n_spawn(this->_win_col, 0, 20);
+		for (size_t i = 0; i < r_asteroids; i++)
+			this->_add_entity(new asteroid(rand() % this->_win_col));
+
+
+		const size_t r_spaceships = rand_n_spawn(this->_win_col, 0, 15);
+		for (size_t i = 0; i < r_spaceships; i++)
+			this->_add_entity(new spaceship(rand() % this->_win_col));
+
 
 		this->print_map();
 
 		key = getch();
 		std::this_thread::sleep_for(std::chrono::milliseconds(1000 / FPS));
+		this->_tick++;
 	}
 }

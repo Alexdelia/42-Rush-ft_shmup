@@ -20,5 +20,5 @@ class star: public entity
 		star(const size_t col);
 		virtual ~star();
 	
-		virtual void	process();
+		virtual void	process(env &e);
 };

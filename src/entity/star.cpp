@@ -18,8 +18,8 @@ star::star(const size_t col): entity(0, col, -1, 1, 0, ".", 0)
 star::~star()
 {}
 
-void	star::process()
+void	star::process(env &e)
 {
-	mvaddstr(51, 0, "star::process()");
+	(void)e;
 	this->set_row(this->get_row() + 1);
 }

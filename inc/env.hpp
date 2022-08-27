@@ -24,11 +24,14 @@
 #define MIN_WIN_ROW	42
 #define MIN_WIN_COL	42
 
+class entity;
+
 class env
 {
 	private:
 		int		_win_row;
 		int		_win_col;
+		size_t 	_tick;
 		size_t	_score;
 		std::unordered_set<entity *>	_entities;
 
@@ -45,17 +48,18 @@ class env
 
 		int		get_win_row() const;
 		int		get_win_col() const;
+		size_t	get_tick() const;
 		size_t	get_score() const;
 
 		void	set_win_row(const int row);
 		void	set_win_col(const int win_col);
 		void	set_score(const size_t score);
+		void	_add_entity(entity *e);
 
 	private:
 		env(const env &src);
 		env &operator=(const env &rhs);
 
-		void	_add_entity(entity *e);
 		void	_add_entities(const std::vector<entity *> &entities);
 		void	_delete_entity(entity *e);
 		void	_delete_entities();
