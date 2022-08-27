@@ -1,36 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   play.cpp                                           :+:      :+:    :+:   */
+/*   key.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/26 22:03:49 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 12:03:16 by adelille         ###   ########.fr       */
+/*   Created: 2022/05/13 13:45:59 by adelille          #+#    #+#             */
+/*   Updated: 2022/08/27 12:03:54 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "shmup.hpp"
 
-static void	spawn_star(const env &e)
+bool	is_exit(const int key)
 {
-	(void)e;
-	return ;
-}
-
-void	env::play(void)
-{
-	int	key = 'p';
-
-	while (!is_exit(key))
-	{
-		spawn_star(*this);
-		clear();
-		// std::cout << "play" << std::endl;
-		mvaddstr(4, 4, "play");
-		mvaddstr(0, 0, "              ");
-		mvprintw(0, 0, "%d", key);
-
-		key = getch();
-	}
+	return (key == KEY_DC
+		|| key == KEY_END
+		|| key == KEY_EXIT
+		|| key == KEY_ESCAPE
+		|| key == KEY_CC
+		|| key == KEY_CD);
 }

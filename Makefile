@@ -6,7 +6,7 @@
 #    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2022/08/26 18:59:19 by adelille         ###   ########.fr        #
+#    Updated: 2022/08/27 12:10:07 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CXX =	c++
 RM = 	rm -rf
 
 CXXFLAGS =	-Wall -Werror -Wextra
-CXXFLAGS +=	-std=c++98
+CXXFLAGS +=	-std=c++11
 
 CXXFLAGS +=	-g3
 # CXXFLAGS +=	-fsanitize=address
@@ -23,7 +23,7 @@ CXXFLAGS +=	-g3
 LKFLAGS =	-MMD -MP
 
 #NCFLAGS =	-lncurses
-NCFLAGS =	-std=c99
+NCFLAGS =	-std=c11
 NCFLAGS +=	$(shell ncursesw5-config --cflags --libs)
 #NCFLAGS +=	-D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -Wl,-Bsymbolic-functions -lncursesw -ltinfo
 

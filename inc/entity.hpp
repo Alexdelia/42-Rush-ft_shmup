@@ -6,20 +6,23 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 10:46:39 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 11:15:52 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/27 12:53:22 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENTITY_HPP
-#define ENTITY_HPP
+#pragma once
 
 #include "shmup.hpp"
+
+#include <vector>
 
 class entity
 {
 	public:
 		entity();
 		~entity();
+		entity(const entity &src);
+		entity &operator=(const entity &rhs);
 
 		int	get_row() const;
 		int	get_col() const;
@@ -29,12 +32,10 @@ class entity
 		const std::string	&get_sprite() const;
 		int					get_color_pair();
 
-		virtual void				process() const = 0;
-		virtual std::vector<entity>	spawner() const = 0;
+		virtual void				process();
+		virtual std::vector<entity>	spawner();
 	
 	private:
-		entity(const entity &src);
-		entity &operator=(const entity &rhs);
 
 		int			_row;
 		int			_col;
@@ -47,5 +48,3 @@ class entity
 		std::string	_sprite;
 		int			_color_pair;
 };
-
-#endif
