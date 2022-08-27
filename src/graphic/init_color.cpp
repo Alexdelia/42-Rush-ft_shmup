@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 12:33:38 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 17:32:51 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/27 22:14:04 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,9 @@ int	r(const int val)
 }
 
 static void	create_colors_front(void)
-{}
+{
+	init_color(C_STAR, r(64), r(64), r(64));
+}
 
 static void	create_colors_back(void)
 {
@@ -32,7 +34,7 @@ static void	init_pairs(void)
 static void	main_colors(void)
 {
 	init_color(C_LOW_GREEN, r(0x34), r(0x8c), r(0x46));
-	init_color(C_WINDOW, r(0x31), r(0x28), r(0x21));
+	init_color(C_WINDOW, r(5), r(5), r(11));
 	init_color(C_BOARD, r(0x84), r(0x79), r(0x6b));
 }
 
@@ -46,6 +48,7 @@ static void	main_pairs(void)
 	init_pair(CP_SCORE, COLOR_B_2048, C_WINDOW);
 	init_pair(CP_EXIT, COLOR_B_64, C_WINDOW);
 	init_pair(CP_WINDOW, COLOR_WHITE, C_WINDOW);
+	init_pair(CP_STAR, C_STAR, C_WINDOW);
 }
 
 bool	graphic::init_color(void)
