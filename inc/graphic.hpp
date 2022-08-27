@@ -6,16 +6,15 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 22:11:13 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 00:22:34 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/27 11:26:51 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GRAPHIC_HPP
-# define GRAHIC_HPP
+#pragma once
 
-# include "shmup.hpp"
+#include "shmup.hpp"
 
-# define MSG_CUR_SCORE	"SCORE"
+#define MSG_CUR_SCORE	"SCORE"
 
 class graphic
 {
@@ -36,5 +35,3 @@ class graphic
 		graphic(const graphic &src);
 		graphic &operator=(const graphic &rhs);
 };
-
-#endif
