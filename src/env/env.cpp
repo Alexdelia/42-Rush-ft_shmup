@@ -6,17 +6,19 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 21:50:06 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/26 22:18:34 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/27 11:38:30 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.hpp"
 
-env::env(): key(0), _row(0), _col(0)
+env::env(): _win_row(0), _win_col(0)
 {}
 
 env::~env()
-{}
+{
+	endwin();
+}
 
 bool env::init(void)
 {
@@ -27,11 +29,11 @@ bool env::init(void)
 	//keypad(stdscr, TRUE);
 	//curs_set(0);	// set after menu
 	
-	if (!graphic::init_color())
-		return (endwin(), false);
+	/*if (!graphic::init_color())
+		return (endwin(), false);*/
 
-	if (!this->resize())
-		return (endwin(), false);
+	/*if (!this->resize())
+		return (endwin(), false);*/
 
 	return (true);
 }

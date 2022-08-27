@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 14:53:02 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/26 23:31:35 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/27 11:35:47 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,16 +40,16 @@
 	return (true);
 }*/
 
-void	env::set_row(const int row)
-{ this->_row = row; }
-void	env::set_col(const int col)
-{ this->_col = col; }
+void	env::set_win_row(const int win_row)
+{ this->_win_row = win_row; }
+void	env::set_win_col(const int win_col)
+{ this->_win_col = win_col; }
 void	env::set_score(const size_t score)
 { this->_score = score; }
 
-int		env::get_row(void) const
-{ return (this->_row); }
-int		env::get_col(void) const
-{ return (this->_col); }
+int		env::get_win_row(void) const
+{ return (this->_win_row); }
+int		env::get_win_col(void) const
+{ return (this->_win_col); }
 size_t	env::get_score(void) const
 { return (this->_score); }
