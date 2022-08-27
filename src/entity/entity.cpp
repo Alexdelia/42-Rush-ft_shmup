@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 12:37:51 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 14:57:44 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/27 15:27:35 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,23 @@ entity &entity::operator=(const entity &rhs)
 	return (*this);
 }
 
-void	entity::process()
+/*void	entity::process()
 {
-	this->_process();
-	//this->set_row(this->get_row() + 1);
-}
+	this->_action_counter--;
+	if (this->_action_counter == 0)
+	{
+		this->_action_counter = this->_action;
+		// do something
+	}
+}*/
 
-void	entity::_process()
-{
-	mvaddstr(50, 0, "entity::_process()");
-}
+void	entity::process()
+{}
 
 std::vector<entity>	entity::spawner()
-{ return (std::vector<entity>()); }
+{
+	return (std::vector<entity>());
+}
 
 int					entity::get_row() const { return (this->_row); }
 int					entity::get_col() const { return (this->_col); }

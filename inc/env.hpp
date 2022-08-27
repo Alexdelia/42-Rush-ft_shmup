@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 21:31:18 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 14:41:00 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/27 15:15:34 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 #include <ncurses.h>
 #include <vector>
-#include <unordered_map>
+#include <unordered_set>
 #include <chrono>
 #include <thread>
 
@@ -30,8 +30,7 @@ class env
 		int		_win_row;
 		int		_win_col;
 		size_t	_score;
-		size_t	_next_id;
-		std::unordered_map<size_t, entity>	_entities;
+		std::unordered_set<entity *>	_entities;
 
 	public:
 		env();
@@ -56,9 +55,10 @@ class env
 		env(const env &src);
 		env &operator=(const env &rhs);
 
-		void	_add_entity(entity e);
-		void	_add_entities(const std::vector<entity> &entities);
-		void	_delete_entity(const size_t id);
+		void	_add_entity(entity *e);
+		void	_add_entities(const std::vector<entity *> &entities);
+		void	_delete_entity(entity *e);
+		void	_delete_entities();
 		void	_delete_out_of_bound();
 };
 

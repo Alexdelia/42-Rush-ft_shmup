@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 10:46:39 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 14:59:15 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/27 15:26:21 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,8 @@ class entity
 		void	set_row(const int row);
 		void	set_col(const int col);
 
-		void						process();
+		virtual void				process();
 		virtual std::vector<entity>	spawner();
-
-	protected:
-		virtual void	_process();
 };
 
 #endif

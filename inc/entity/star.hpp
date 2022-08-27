@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 13:16:08 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 14:59:03 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/27 15:26:03 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,5 @@ class star: public entity
 		star(const size_t col);
 		virtual ~star();
 	
-	protected:
-		virtual void	_process();
+		virtual void	process();
 };
