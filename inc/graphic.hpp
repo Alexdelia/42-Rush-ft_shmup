@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 22:11:13 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 11:20:59 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 14:19:45 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@
 # include "env.hpp"
 # include "score.hpp"
 
-#define MIN_WIN_ROW	10
-#define MIN_WIN_COL	21
+# define MIN_WIN_ROW	10
+# define MIN_WIN_COL	21
+
+# define SCORE_W		20
 
 # define MSG_PLAY		"PLAY "
 # define MSG_EXIT		"EXIT "
@@ -65,6 +67,7 @@ class graphic
 		static void	print_menu(const env &e);
 		static void	print_frame(const int row, const int col, const int color);
 
+		static void	print_stats(env &e);
 		static void	print_score(const env &e, const score &s);
 		static void	print_frame_score(const env &e, const int color);
 		static void	print_header_score(const env &e);
