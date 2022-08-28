@@ -16,6 +16,7 @@
 
 env::env(): _win_row(0), _win_col(0), _tick(0), _score(0), _entities()
 {
+	_begin = std::chrono::steady_clock::now();
 	srand(time(NULL));
 }
 

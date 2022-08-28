@@ -54,11 +54,25 @@ void	graphic::print_stats(env &e)
 	clean(start);
 	stats(start);
 
-	mvaddstr(4, start + 2, "score: ");
+	mvaddstr(4, start + 2, "time: ");
+	mvaddstr(4, start + 15, "score: ");
 	mvaddstr(5, start + 2, "   HP: ");
-
 	const std::string	score = std::to_string(e.get_score());
-	mvaddstr(4, start + 5 + STATS_W / 2 - score.size() / 2, score.c_str());
+	// const std::string	score = std::to_string(e.get_tick() * FPS / 1000);
+	const std::string	sec = std::to_string(std::chrono::duration_cast<std::chrono::seconds>(std::chrono::steady_clock::now() - e.get_begin()).count() % 60);
+	const std::string	min = std::to_string(std::chrono::duration_cast<std::chrono::seconds>(std::chrono::steady_clock::now() - e.get_begin()).count() / 60);
+
+	mvaddstr(4, start + 9, min.c_str());
+	mvaddstr(4, start + 10, ":");
+	if (sec.size() <2) {
+		mvaddstr(4, start + 11, "0");
+		mvaddstr(4, start + 12, sec.c_str());
+	}
+	else 
+		mvaddstr(4, start + 11, sec.c_str());
+	mvaddstr(4, start + 22 , score.c_str());
+
+
 	mvaddch(5, start + 10, '[');
 	i = -1;
 	while (++i < 10)

@@ -14,7 +14,7 @@
 #include "graphic.hpp"
 
 rocket::rocket(const int row, const int col, const int dir):
-	entity(row, col, 1, 4, 2, "|", CP_ROCKET, false, true, 1, 10)
+	entity(row, col, 1, 2, 2, "|", CP_ROCKET, false, true, 1, 10)
 {
 	_dir = dir;
 	if (dir == -1)
