@@ -6,7 +6,7 @@
 #    By: adelille <adelille@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/30 19:21:49 by adelille          #+#    #+#              #
-#    Updated: 2022/08/28 09:38:45 by adelille         ###   ########.fr        #
+#    Updated: 2022/08/28 22:39:43 by adelille         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -97,6 +97,7 @@ clean:
 
 fclean:		clean
 	@$(RM) $(NAME)
+	@$(RM) null.d
 
 re:			fclean all
 
