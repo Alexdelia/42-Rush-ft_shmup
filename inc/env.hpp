@@ -6,12 +6,11 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 21:31:18 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 17:47:26 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 09:46:55 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENV_HPP
-# define ENV_HPP
+#pragma once
 
 #include "entity/entity.hpp"
 
@@ -26,6 +25,8 @@
 
 class entity;
 
+class player;
+
 class env
 {
 	private:
@@ -34,12 +35,11 @@ class env
 		size_t 	_tick;
 		size_t	_score;
 		std::unordered_set<entity *>	_entities;
+		player							*_player;
 
 	public:
 		env();
 		~env();
-
-		//int	key;
 
 		bool	init();
 		bool	resize();
@@ -54,7 +54,8 @@ class env
 		void	set_win_row(const int row);
 		void	set_win_col(const int win_col);
 		void	set_score(const size_t score);
-		void	_add_entity(entity *e);
+
+		void	add_entity(entity *e);
 
 	private:
 		env(const env &src);
@@ -64,6 +65,6 @@ class env
 		void	_delete_entity(entity *e);
 		void	_delete_entities();
 		void	_delete_out_of_bound();
-};
 
-#endif
+		void	_handle_input(const int key);
+};

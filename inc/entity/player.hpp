@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rocket.hpp                                         :+:      :+:    :+:   */
+/*   player.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/28 09:43:35 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 09:43:40 by adelille         ###   ########.fr       */
+/*   Created: 2022/08/27 22:33:29 by adelille          #+#    #+#             */
+/*   Updated: 2022/08/28 09:28:20 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 #include "entity.hpp"
 
-class rocket: public entity
+class player: public entity
 {
 	public:
-		rocket(const int row, const int col);
-		virtual ~rocket();
+		player(const int row, const int col);
+		virtual ~player();
 	
 		virtual void	process(env &e);
+
+		void			spawn_rocket(env &e);
 };
