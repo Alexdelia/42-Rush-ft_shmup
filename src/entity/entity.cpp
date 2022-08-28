@@ -6,13 +6,13 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 12:37:51 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 15:27:35 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 10:52:04 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entity/entity.hpp"
 
-entity::entity(): _row(0), _col(0), _zindex(0), _speed(0), _action(0), _action_counter(0), _color_pair(0)
+entity::entity(): _row(0), _col(0), _zindex(0), _speed(0), _action(0), _action_counter(0), _color_pair(0), _is_killable(true), _is_enemy(true)
 {
 	this->_sprite = "";
 }
@@ -24,9 +24,20 @@ entity::entity(
 	const int speed,
 	const int action,
 	const std::string &sprite,
-	const int color_pair
+	const int color_pair,
+	const bool is_killable,
+	const bool is_enemy
 	):
-	_row(row), _col(col), _zindex(zindex), _speed(speed), _action(action), _action_counter(action), _sprite(sprite), _color_pair(color_pair)
+	_row(row),
+	_col(col),
+	_zindex(zindex),
+	_speed(speed), 
+	_action(action),
+	_action_counter(action),
+	_sprite(sprite),
+	_color_pair(color_pair),
+	_is_killable(is_killable),
+	_is_enemy(is_enemy)
 {
 	this->_sprite = sprite;
 }

@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 21:31:18 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 09:46:55 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 11:20:54 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,6 @@
 #include <unordered_set>
 #include <chrono>
 #include <thread>
-
-#define MIN_WIN_ROW	42
-#define MIN_WIN_COL	42
 
 class entity;
 

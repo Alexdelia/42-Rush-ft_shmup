@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 22:11:13 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 09:30:50 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 11:20:59 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include "env.hpp"
 # include "score.hpp"
 
-# define MIN_WIN_ROW	42
-# define MIN_WIN_COL	42
+#define MIN_WIN_ROW	10
+#define MIN_WIN_COL	21
 
 # define MSG_PLAY		"PLAY "
 # define MSG_EXIT		"EXIT "
@@ -35,6 +35,7 @@
 
 # define C_PLAYER		229
 # define C_STAR			228
+# define C_ROCKET		227
 
 # define CP_0			1
 # define CP_GREEN		3
@@ -48,6 +49,7 @@
 
 # define CP_PLAYER		13
 # define CP_STAR		14
+# define CP_ROCKET		15
 
 class score;
 
