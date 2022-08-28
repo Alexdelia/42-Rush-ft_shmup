@@ -23,7 +23,7 @@ void	spaceship::process(env &e)
 	if (e.get_tick() % this->_speed == 0)
 		this->set_row(this->get_row() + 1);
 	if (_action_counter == _action) {
-		e.add_entity(new rocket(this->_row, this->_col));
+		e.add_entity(new rocket(this->_row + 1, this->_col, 0));
 		this->_action_counter = 0;
 	} else
 		this->_action_counter++;

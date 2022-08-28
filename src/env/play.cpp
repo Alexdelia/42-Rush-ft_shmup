@@ -16,7 +16,7 @@
 #include "keys.hpp"
 #include "entity/asteroid.hpp"
 #include "entity/spaceship.hpp"
-
+#include "entity/destroyer.hpp"
 
 static size_t rand_n_spawn(const int col, const size_t min, const size_t max)
 {
@@ -61,9 +61,16 @@ void	env::play()
 			this->add_entity(new asteroid(rand() % this->_win_col));
 
 
-		const size_t r_spaceships = rand_n_spawn(this->_win_col, 0, 15);
-		for (size_t i = 0; i < r_spaceships; i++)
-			this->add_entity(new spaceship(rand() % this->_win_col));
+		// const size_t r_spaceships = rand_n_spawn(this->_win_col, 0, 15);
+		// for (size_t i = 0; i < r_spaceships; i++)
+		// 	this->add_entity(new spaceship(rand() % this->_win_col));
+
+		const size_t r_destroyers = rand_n_spawn(this->_win_col, 0, 15);
+		for (size_t i = 0; i < r_destroyers; i++)
+			this->add_entity(new destroyer(rand() % this->_win_col));
+
+
+
 
 		this->_handle_input(key);
 
