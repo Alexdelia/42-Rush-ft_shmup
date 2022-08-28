@@ -6,11 +6,12 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 22:20:13 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 22:52:43 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 09:29:20 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.hpp"
+#include "entity/player.hpp"
 
 void	env::_handle_input(const int key)
 {

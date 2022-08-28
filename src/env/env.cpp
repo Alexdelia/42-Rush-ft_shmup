@@ -6,12 +6,13 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 21:50:06 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 22:43:41 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 09:28:55 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.hpp"
 #include "graphic.hpp"
+#include "entity/player.hpp"
 
 env::env(): _win_row(0), _win_col(0), _tick(0), _score(0), _entities()
 {

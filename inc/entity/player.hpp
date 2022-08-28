@@ -6,12 +6,13 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 22:33:29 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 22:41:27 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 09:28:20 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PLAYER_HPP
-# define PLAYER_HPP
+#pragma once
+
+#include "entity.hpp"
 
 class player: public entity
 {
@@ -23,5 +24,3 @@ class player: public entity
 
 		void			spawn_rocket(env &e);
 };
-
-#endif

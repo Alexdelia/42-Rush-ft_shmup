@@ -6,15 +6,13 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 21:31:18 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 22:42:09 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 09:26:54 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENV_HPP
-# define ENV_HPP
+#pragma once
 
 #include "entity/entity.hpp"
-#include "player.hpp"
 
 #include <ncurses.h>
 #include <vector>
@@ -69,5 +67,3 @@ class env
 
 		void	_handle_input(const int key);
 };
-
-#endif

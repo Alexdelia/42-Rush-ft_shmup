@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 22:03:49 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 22:45:51 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 09:39:22 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ void	env::print_map()
 	{
 		attrset(COLOR_PAIR((*it)->get_color_pair()));
 		mvaddstr((*it)->get_row(), (*it)->get_col(), (*it)->get_sprite().c_str());
-		attrset(A_NORMAL);
+		//attrset(A_NORMAL);
 	}
-	refresh();
+	//refresh();
 }
 
 void	env::play()

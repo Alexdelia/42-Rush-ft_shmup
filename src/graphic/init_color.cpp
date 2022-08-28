@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 12:33:38 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 22:14:04 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 09:32:56 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	r(const int val)
 static void	create_colors_front(void)
 {
 	init_color(C_STAR, r(64), r(64), r(64));
+	init_color(C_PLAYER, r(128), r(142), r(255));
 }
 
 static void	create_colors_back(void)
@@ -49,6 +50,7 @@ static void	main_pairs(void)
 	init_pair(CP_EXIT, COLOR_B_64, C_WINDOW);
 	init_pair(CP_WINDOW, COLOR_WHITE, C_WINDOW);
 	init_pair(CP_STAR, C_STAR, C_WINDOW);
+	init_pair(CP_PLAYER, C_PLAYER, C_WINDOW);
 }
 
 bool	graphic::init_color(void)
