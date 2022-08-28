@@ -36,7 +36,7 @@ static void	stats(const size_t start)
 	{
 		mvaddstr(4 + i, start, "▏");
 		mvaddstr(4 + i, start + STATS_W, " ▏");
-	}
+	} 
 	move(4 + i, start);
 	addstr("╲");
 	i = -1;

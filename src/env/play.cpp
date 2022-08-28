@@ -62,6 +62,8 @@ void	env::_collision()
 
 void	env::_spawn_script()
 {
+
+	
 		// spawn stars
 		const size_t r = rand_n_spawn(this->_win_col, 100, 200);
 		for (size_t i = 0; i < r; i++)
