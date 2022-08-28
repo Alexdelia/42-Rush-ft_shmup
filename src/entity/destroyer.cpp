@@ -1,7 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   destroyer.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/08/28 14:13:23 by adelille          #+#    #+#             */
+/*   Updated: 2022/08/28 14:15:24 by adelille         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "entity/destroyer.hpp"
+#include "graphic.hpp"
 
-destroyer::destroyer(const size_t col): entity(0, col, 3, 8, 400, "$", 0)
+destroyer::destroyer(const size_t col):
+	entity(0, col, 3, 8, 400, "#", CP_RED, true, true, 110, 100)
 {}
 
 destroyer::~destroyer()
@@ -10,7 +23,7 @@ destroyer::~destroyer()
 void	destroyer::process(env &e)
 {
 	if (e.get_tick() % this->_speed == 0)
-		this->set_row(this->get_row() + 1);
+		this->_row++;
 	if (_action_counter == _action) {
 		e.add_entity(new rocket(this->_row + 1, this->_col, 0));
 		e.add_entity(new rocket(this->_row + 1, this->_col, 1));

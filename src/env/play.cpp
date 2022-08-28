@@ -6,11 +6,12 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 22:03:49 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 10:48:47 by cmenasse         ###   ########.fr       */
+/*   Updated: 2022/08/28 14:12:54 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.hpp"
+#include "graphic.hpp"
 #include "shmup.hpp"
 #include "keys.hpp"
 #include "entity/player.hpp"
@@ -33,6 +34,7 @@ void	env::print_map()
 		mvaddstr((*it)->get_row(), (*it)->get_col(), (*it)->get_sprite().c_str());
 		//attrset(A_NORMAL);
 	}
+	graphic::print_stats(*this);
 	//refresh();
 }
 
