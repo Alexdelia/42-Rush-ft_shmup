@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 21:50:06 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 09:28:55 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 09:46:52 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ bool env::init(void)
 		return (endwin(), false);
 	
 	this->_player = new player(this->_win_row, this->_win_col);
-	this->_add_entity(this->_player);
+	this->add_entity(this->_player);
 
 	return (true);
 }

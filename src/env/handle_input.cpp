@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 22:20:13 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 09:29:20 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 10:05:40 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	env::_handle_input(const int key)
 			&& this->_player->get_row() > 0)
 		this->_player->set_row(this->_player->get_row() - 1);
 	else if ((key == KEY_DOWN || key == 's' || key == 'S')
-			&& this->_player->get_row() < this->_win_row)
+			&& this->_player->get_row() < this->_win_row - 1)
 		this->_player->set_row(this->_player->get_row() + 1);
 	else if (key == KEY_RIGHT || key == 'd' || key == 'D')
 	{

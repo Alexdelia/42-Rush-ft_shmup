@@ -6,13 +6,13 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 12:16:16 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 15:42:44 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 10:34:13 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.hpp"
 
-void	env::_add_entity(entity *entity)
+void	env::add_entity(entity *entity)
 {
 	this->_entities.insert(entity);
 }

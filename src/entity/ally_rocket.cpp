@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rocket.hpp                                         :+:      :+:    :+:   */
+/*   ally_rocket.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/28 09:43:35 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 09:43:40 by adelille         ###   ########.fr       */
+/*   Created: 2022/08/28 09:44:49 by adelille          #+#    #+#             */
+/*   Updated: 2022/08/28 10:07:39 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "entity/ally_rocket.hpp"
+#include "graphic.hpp"
 
-#include "entity.hpp"
+ally_rocket::ally_rocket(const int row, const int col): entity(row, col, 1, 1, 0, "'", CP_PLAYER)
+{}
 
-class rocket: public entity
+ally_rocket::~ally_rocket()
+{}
+
+void	ally_rocket::process(env &e)
 {
-	public:
-		rocket(const int row, const int col);
-		virtual ~rocket();
-	
-		virtual void	process(env &e);
-};
+	if (e.get_tick() % this->_speed == 0)
+		this->set_row(this->get_row() - 1);
+}

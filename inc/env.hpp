@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 21:31:18 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 09:26:54 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 09:46:55 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ class env
 		void	set_win_row(const int row);
 		void	set_win_col(const int win_col);
 		void	set_score(const size_t score);
-		void	_add_entity(entity *e);
+
+		void	add_entity(entity *e);
 
 	private:
 		env(const env &src);
