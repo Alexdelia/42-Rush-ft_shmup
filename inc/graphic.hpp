@@ -37,6 +37,8 @@
 # define C_STAR			228
 # define C_ROCKET		227
 # define C_HP			226
+# define C_DECOR		225
+
 
 # define CP_0			1
 # define CP_GREEN		3
@@ -52,6 +54,7 @@
 # define CP_STAR		14
 # define CP_ROCKET		15
 # define CP_HP			16
+# define CP_DECOR		17
 
 class score;
 
