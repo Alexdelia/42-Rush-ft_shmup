@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 13:45:59 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 17:05:37 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 21:43:19 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,7 @@ bool	keys::is_exit(const int key)
 		|| key == KEY_EXIT
 		|| key == KEY_ESCAPE
 		|| key == KEY_CC
-		|| key == KEY_CD);
+		|| key == KEY_CD
+		|| key == 'e'
+		|| key == 'E');
 }

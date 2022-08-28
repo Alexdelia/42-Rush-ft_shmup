@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 22:03:49 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 21:34:31 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 21:45:25 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,9 +98,6 @@ void	env::play()
 	int		key = 'p';
 	bool	boss = false;
 
-	// tmp
-	/*this->_win_row = 42;
-	this->_win_col = 42;*/
 	this->set_begin(std::chrono::steady_clock::now());
 	this->print_map();
 	while (!keys::is_exit(key))

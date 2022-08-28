@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 16:12:49 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 19:16:47 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 21:44:28 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	graphic::pmw(const int row, const int col, const std::string &str)
 {
-	mvaddstr(row / 2, col / 2 - str.size() / 2, str.c_str());
+	mvaddstr(row / 2, (col - str.size()) / 2, str.c_str());
 }
 
 bool	graphic::valid_size(const int row, const int col)
