@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 19:19:51 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 21:43:03 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 21:51:39 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static bool menu_key_handle(env &e, int *key)
 {
-	move((e.get_win_row() - 1) / 2 + 5, e.get_win_col() / 2);
+	move((e.get_win_row() - 1) / 2 + 5, (e.get_win_col() - 1) / 2);
 	*key = getch();
 	if (*key == '2')
 		e.add_multi();
