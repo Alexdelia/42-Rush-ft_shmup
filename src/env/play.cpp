@@ -89,6 +89,21 @@ void	env::_spawn_script(bool *b_boss)
 	{
 		*b_boss = true;
 		this->add_entity(new boss(this->_win_col / 2));
+
+
+		this->add_entity(new decor(get_boss()->get_row(), get_boss->get_col(), get_boss()->get_speed(), "("));
+		this->add_entity(new decor(get_boss()->get_row(), get_boss->get_col(), get_boss()->get_speed(), "("));
+		this->add_entity(new decor(get_boss()->get_row(), get_boss->get_col(), get_boss()->get_speed(), "("));
+		this->add_entity(new decor(get_boss()->get_row(), get_boss->get_col(), get_boss()->get_speed(), "("));
+		this->add_entity(new decor(get_boss()->get_row(), get_boss->get_col(), get_boss()->get_speed(), "("));
+		this->add_entity(new decor(get_boss()->get_row(), get_boss->get_col(), get_boss()->get_speed(), "("));
+		this->add_entity(new decor(get_boss()->get_row(), get_boss->get_col(), get_boss()->get_speed(), "("));
+		this->add_entity(new decor(get_boss()->get_row(), get_boss->get_col(), get_boss()->get_speed(), "("));
+
+
+
+
+
 	}
 }
 
