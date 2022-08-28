@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 22:20:13 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 10:05:40 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 11:50:41 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,6 @@ void	env::_handle_input(const int key)
 			this->_player->set_col(this->_player->get_col() - 1);
 	}
 	else if (key == ' ')
-		this->_player->spawn_rocket(*this);
+		this->_player->shoot(*this);
 	// maybe bomb
 }

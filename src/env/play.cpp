@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 22:03:49 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 09:58:21 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 11:35:19 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "entity/asteroid.hpp"
 #include "entity/spaceship.hpp"
 
+#include <unistd.h>
 
 static size_t rand_n_spawn(const int col, const size_t min, const size_t max)
 {

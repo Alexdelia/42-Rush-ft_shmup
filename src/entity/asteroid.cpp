@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 09:44:52 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 11:14:16 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 12:04:36 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,12 @@ asteroid::~asteroid()
 void	asteroid::process(env &e)
 {
 	if (e.get_tick() % this->_speed == 0)
-		this->set_row(this->get_row() + 1);
+		this->_row++;
+	if (e.get_tick() % 4 == 0)
+	{
+		if ((int)(e.get_tick() / 100) % 4 == 1)
+			this->_col--;
+		else if ((int)(e.get_tick() / 100) % 4 == 3)
+			this->_col++;
+	}
 }
