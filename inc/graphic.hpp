@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 22:11:13 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 16:46:05 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 19:25:27 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,16 @@
 
 # include "env.hpp"
 
-# define MIN_WIN_ROW	10
-# define MIN_WIN_COL	21
+# define MIN_WIN_ROW	30
+# define MIN_WIN_COL	40
 
 # define STATS_W		30
 # define STATS_W_S		"                              "
 
-# define MSG_PLAY		"PLAY "
-# define MSG_EXIT		"EXIT "
+# define MSG_PLAY		"PLAY"
+# define MSG_EXIT		"EXIT"
 # define MSG_WON		"WON"
 # define MSG_LOST		"GAMEOVER"
-
-# define MSG_SCORE		"HIGHSCORE"
-# define MSG_CUR_SCORE	"SCORE"
 
 # define C_LOW_GREEN	232
 # define C_WINDOW		233

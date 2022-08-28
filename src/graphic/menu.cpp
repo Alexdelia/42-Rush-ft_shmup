@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 19:19:51 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 16:47:14 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 19:22:28 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static bool menu_key_handle(env &e, int *key)
 {
-	move((e.get_win_row() - 1) / 2 + 3, e.get_win_col() / 2 - 2);
+	move((e.get_win_row() - 1) / 2 + 4, e.get_win_col() / 2 - 1);
 	*key = getch();
 	if (*key == KEY_RESIZE)
 	{
@@ -24,7 +24,7 @@ static bool menu_key_handle(env &e, int *key)
 		clear();
 		graphic::print_menu(e);
 	}
-	else if (keys::is_exit(*key))
+	else if (keys::is_exit(*key) || *key == 'q' || *key == 'Q')
 		return (false);
 	return (true);
 }
