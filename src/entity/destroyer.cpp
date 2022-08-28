@@ -1,7 +1,7 @@
 
 #include "entity/destroyer.hpp"
 
-destroyer::destroyer(const size_t col): entity(0, col, 3, 8, 400, "$", 0)
+destroyer::destroyer(const size_t col): entity(0, col, 3, 8, 400, "$", 0, true, true, 110, 90)
 {}
 
 destroyer::~destroyer()
