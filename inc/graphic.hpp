@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 22:11:13 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 14:19:45 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 16:46:05 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 # define GRAPHIC_HPP
 
 # include "env.hpp"
-# include "score.hpp"
 
 # define MIN_WIN_ROW	10
 # define MIN_WIN_COL	21
 
-# define SCORE_W		20
+# define STATS_W		30
+# define STATS_W_S		"                              "
 
 # define MSG_PLAY		"PLAY "
 # define MSG_EXIT		"EXIT "
@@ -38,6 +38,7 @@
 # define C_PLAYER		229
 # define C_STAR			228
 # define C_ROCKET		227
+# define C_HP			226
 
 # define CP_0			1
 # define CP_GREEN		3
@@ -52,15 +53,13 @@
 # define CP_PLAYER		13
 # define CP_STAR		14
 # define CP_ROCKET		15
+# define CP_HP			16
 
 class score;
 
 class graphic
 {
 	public:
-		graphic();
-		~graphic();
-
 		static bool init_color(void);
 		
 		static bool	menu(env &e);
@@ -68,8 +67,6 @@ class graphic
 		static void	print_frame(const int row, const int col, const int color);
 
 		static void	print_stats(env &e);
-		static void	print_score(const env &e, const score &s);
-		static void	print_frame_score(const env &e, const int color);
 		static void	print_header_score(const env &e);
 	
 		static void		pmw(const int row, const int col, const std::string &str);
@@ -78,6 +75,8 @@ class graphic
 		static size_t	ft_stlen(size_t n);
 	
 	private:
+		graphic();
+		~graphic();
 		graphic(const graphic &src);
 		graphic &operator=(const graphic &rhs);
 };

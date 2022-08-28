@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 14:13:23 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 14:15:24 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 16:35:59 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "graphic.hpp"
 
 destroyer::destroyer(const size_t col):
-	entity(0, col, 3, 8, 400, "#", CP_RED, true, true, 110, 100)
+	entity(0, col, 3, 8, 400, "🜛", CP_RED, true, true, 110, 100)
 {}
 
 destroyer::~destroyer()
