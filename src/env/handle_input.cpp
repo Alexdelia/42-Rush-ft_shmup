@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 22:20:13 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 11:50:41 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 21:17:04 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 
 void	env::_handle_input(const int key)
 {
-	if ((key == KEY_UP || key == 'w' || key == 'W' || key == 'z' || key == 'Z')
+	if ((key == 'w' || key == 'W' || key == 'z' || key == 'Z')
 			&& this->_player->get_row() > 0)
 		this->_player->set_row(this->_player->get_row() - 1);
-	else if ((key == KEY_DOWN || key == 's' || key == 'S')
+	else if ((key == 's' || key == 'S')
 			&& this->_player->get_row() < this->_win_row - 1)
 		this->_player->set_row(this->_player->get_row() + 1);
-	else if (key == KEY_RIGHT || key == 'd' || key == 'D')
+	else if (key == 'd' || key == 'D')
 	{
 		if (this->_player->get_col() == this->_win_col - 1)
 			this->_player->set_col(0);
 		else
 			this->_player->set_col(this->_player->get_col() + 1);
 	}
-	else if (key == KEY_LEFT || key == 'a' || key == 'A' || key == 'q' || key == 'Q')
+	else if (key == 'a' || key == 'A' || key == 'q' || key == 'Q')
 	{
 		if (this->_player->get_col() == 0)
 			this->_player->set_col(this->_win_col - 1);
@@ -37,5 +37,8 @@ void	env::_handle_input(const int key)
 	}
 	else if (key == ' ')
 		this->_player->shoot(*this);
+	else if (key == KEY_UP
+			&& this->_player->get_row() > 0)
+		this->_player->set_row(this->_player->get_row() - 1);
 	// maybe bomb
 }

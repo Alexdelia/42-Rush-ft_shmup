@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 19:32:17 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 19:24:18 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 21:11:24 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,10 @@ static void	print_menu_key(const env &e)
 	addch('p');
 	attrset(A_NORMAL);
 	addch('/');
+	attrset(COLOR_PAIR(CP_HP) | A_BOLD);
+	addch('m');
+	attrset(A_NORMAL);
+	addch('/');
 	attrset(COLOR_PAIR(CP_EXIT) | A_BOLD);
 	addch('q');
 	attrset(A_NORMAL);
@@ -60,6 +64,9 @@ void	graphic::print_menu(const env &e)
 	attrset(A_BOLD | COLOR_PAIR(CP_PLAY));
 	mvprintw((e.get_win_row() - 1) / 2,
 		(e.get_win_col() - strlen(MSG_PLAY)) / 2, MSG_PLAY);
+	attrset(A_BOLD | COLOR_PAIR(CP_HP));
+	mvprintw((e.get_win_row() - 1) / 2,
+		(e.get_win_col() - strlen(MSG_MULTI)) / 2, MSG_MULTI);
 	attrset(A_BOLD | COLOR_PAIR(CP_EXIT));
 	mvprintw((e.get_win_row() - 1) / 2 + 2,
 		(e.get_win_col() - strlen(MSG_EXIT)) / 2, MSG_EXIT);
