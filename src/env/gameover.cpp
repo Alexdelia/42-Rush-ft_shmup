@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   gameover.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/17 15:31:34 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 15:42:51 by adelille         ###   ########.fr       */
+/*   Created: 2022/08/28 15:43:06 by adelille          #+#    #+#             */
+/*   Updated: 2022/08/28 16:45:04 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.hpp"
-#include "graphic.hpp"
+#include "keys.hpp"
+#include "entity/player.hpp"
 
-int main(void)
+void	env::gameover()
 {
-	env e;
-
-	if (!e.init())
-		return (1);
-
-	if (!graphic::menu(e))
-		return (2);
-
-	e.play();
-
-	e.gameover();
-	
-	return (0);
+	this->get_player()->set_hp(0);
+	erase();
+	this->print_map();
+	int	key = 'z';
+	while (!keys::is_exit(key))
+	{
+		key = getch();
+	}
 }

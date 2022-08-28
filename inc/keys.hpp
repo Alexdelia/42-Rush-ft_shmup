@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key.hpp                                            :+:      :+:    :+:   */
+/*   keys.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 16:18:20 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 17:04:54 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 16:38:37 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,13 @@
 class keys
 {
 	public:
-		keys();
-		~keys();
-
 		static bool	is_exit(const int key);
+	
+	private:
+		keys();
+		keys(const keys &);
+		~keys();
+		keys &operator=(const keys &);
 };
 
 #endif

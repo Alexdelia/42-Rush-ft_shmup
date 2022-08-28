@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 14:53:02 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 11:35:47 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 14:46:57 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,3 +53,7 @@ int		env::get_win_col(void) const
 { return (this->_win_col); }
 size_t	env::get_score(void) const
 { return (this->_score); }
+size_t	env::get_tick(void) const
+{ return (this->_tick); }
+player	*env::get_player(void) const
+{ return (this->_player); }

@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 21:50:06 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 09:46:52 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 14:46:28 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,4 @@ bool env::init(void)
 	this->add_entity(this->_player);
 
 	return (true);
-}
-
-size_t	env::get_tick() const {
-	return this->_tick;
 }
