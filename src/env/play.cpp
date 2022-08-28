@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 22:03:49 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 14:12:54 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 14:58:20 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,12 @@ void	env::play()
 		this->_delete_killed();
 		this->_spawn_script();
 
-		// gained hp on tick
+		if (this->_player->get_hp() < 100 && this->_tick % 4 == 0)
+		{
+			this->_player->set_hp(this->_player->get_hp() + 1);
+			if (this->_player->get_hp() >= 100)
+				this->_player->set_hp(100);
+		}
 		this->_handle_input(key);
 
 		this->print_map();

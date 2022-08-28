@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 21:31:18 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 13:27:08 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 15:42:41 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,14 @@ class env
 		bool	init();
 		bool	resize();
 		void	play();
+		void	gameover();
 		void	print_map();
 
 		int		get_win_row() const;
 		int		get_win_col() const;
 		size_t	get_tick() const;
 		size_t	get_score() const;
+		player	*get_player() const;
 
 		void	set_win_row(const int row);
 		void	set_win_col(const int win_col);

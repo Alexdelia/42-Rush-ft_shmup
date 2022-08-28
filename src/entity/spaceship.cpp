@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 09:45:02 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 13:33:37 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 16:40:25 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "graphic.hpp"
 
 spaceship::spaceship(const size_t col):
-	entity(0, col, 2, 6, 240, "$", CP_RED, true, true, 10, 90)
+	entity(0, col, 2, 6, 240, "🜉", CP_RED, true, true, 10, 100)
 {}
 
 spaceship::~spaceship()

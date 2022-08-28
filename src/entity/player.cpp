@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 13:16:00 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 13:32:15 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 15:15:42 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "graphic.hpp"
 
 player::player(const int row, const int col):
-	entity(row - 2, (int)col / 2, 0, 0, 0, "^", CP_PLAYER, true, false, 100, 50),
+	entity(row - 2, (int)col / 2, 0, 0, 0, "🙭", CP_PLAYER, true, false, 100, 50),
 	_shoot_timer(0)
 {}
 
