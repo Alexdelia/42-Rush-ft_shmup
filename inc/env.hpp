@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 21:31:18 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 20:02:20 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 21:20:15 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 #include <thread>
 
 class entity;
-
 class player;
+class boss;
 
 class env
 {
@@ -33,6 +33,8 @@ class env
 		size_t	_score;
 		std::unordered_set<entity *>	_entities;
 		player							*_player;
+		player							*_player2;
+		boss							*_boss;
 		std::chrono::steady_clock::time_point _begin;
 
 	public:
@@ -50,6 +52,7 @@ class env
 		size_t	get_tick() const;
 		size_t	get_score() const;
 		player	*get_player() const;
+		boss	*get_boss() const;
 		std::chrono::steady_clock::time_point get_begin() const;
 
 		void	set_win_row(const int row);
@@ -58,6 +61,7 @@ class env
 		void	set_begin(const  std::chrono::steady_clock::time_point begin);
 
 		void	add_entity(entity *e);
+		void	add_multi();
 
 
 	private:

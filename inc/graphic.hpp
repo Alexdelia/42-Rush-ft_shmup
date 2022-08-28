@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 22:11:13 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 19:25:27 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 21:11:39 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # define STATS_W_S		"                              "
 
 # define MSG_PLAY		"PLAY"
+# define MSG_MULTI		"MULTIPLAYER"
 # define MSG_EXIT		"EXIT"
 # define MSG_WON		"WON"
 # define MSG_LOST		"GAMEOVER"

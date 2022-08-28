@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/13 14:53:02 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 14:46:57 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 21:20:30 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,5 +61,7 @@ size_t	env::get_tick(void) const
 { return (this->_tick); }
 player	*env::get_player(void) const
 { return (this->_player); }
+boss	*env::get_boss(void) const
+{ return (this->_boss); }
 std::chrono::steady_clock::time_point env::get_begin() const 
 { return this->_begin; }

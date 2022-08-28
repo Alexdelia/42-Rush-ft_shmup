@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 21:50:06 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 14:46:28 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 21:22:03 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "graphic.hpp"
 #include "entity/player.hpp"
 
-env::env(): _win_row(0), _win_col(0), _tick(0), _score(0), _entities()
+env::env(): _win_row(0), _win_col(0), _tick(0), _score(0), _entities(), _player2(NULL), _boss(NULL)
 {
 	_begin = std::chrono::steady_clock::now();
 	srand(time(NULL));

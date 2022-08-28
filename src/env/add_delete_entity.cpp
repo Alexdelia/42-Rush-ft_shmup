@@ -6,11 +6,12 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 12:16:16 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 13:42:30 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 21:23:52 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.hpp"
+#include "entity/player.hpp"
 
 void	env::add_entity(entity *entity)
 {
@@ -62,4 +63,10 @@ void	env::_delete_killed()
 		else
 			++it;
 	}
+}
+
+void	env::add_multi()
+{
+	this->_player2 = new player(this->_win_row, (int)this->_win_col * 1.5);
+	add_entity(this->_player2);
 }

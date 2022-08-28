@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 22:03:49 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 21:04:08 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 21:21:40 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,8 @@ void	env::_spawn_script(bool *b_boss)
 	else if (now > 0 && *b_boss == false)
 	{
 		*b_boss = true;
-		this->add_entity(new boss(this->_win_col / 2));
+		this->_boss = new boss(this->_win_col / 2);
+		this->add_entity(this->_boss);
 	}
 }
 
@@ -110,7 +111,8 @@ void	env::play()
 
 		this->_kill_out_of_bound();
 		this->_collision();
-		if (this->_player->get_hp() <= 0)
+		if (this->_player->get_hp() <= 0 || (this->_player2 && this->_player2->get_hp() <= 0)
+				|| (this->_boss && this->_boss->get_hp() <= 0))
 			return ;
 		this->_delete_killed();
 		this->_spawn_script(&boss);
