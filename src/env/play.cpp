@@ -52,8 +52,9 @@ void	env::_collision()
 					(*it)->set_hp((*it)->get_hp() - (*it2)->get_attack_power());
 				if ((*it2)->get_is_killable())
 					(*it2)->set_hp((*it2)->get_hp() - (*it)->get_attack_power());
-				
-				this->_score += (*it)->get_attack_power();
+				if ((*it)->get_sprite() != "^" && (*it2)->get_sprite() != "^" 
+					&& (*it)->get_sprite() != "." && (*it2)->get_sprite() != ".")	
+					this->_score += (*it)->get_is_enemy() ? (*it2)->get_attack_power() : (*it)->get_attack_power();
 			}
 		}
 	}
