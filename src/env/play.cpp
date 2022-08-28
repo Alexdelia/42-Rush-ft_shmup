@@ -52,7 +52,7 @@ void	env::_collision()
 					(*it)->set_hp((*it)->get_hp() - (*it2)->get_attack_power());
 				if ((*it2)->get_is_killable())
 					(*it2)->set_hp((*it2)->get_hp() - (*it)->get_attack_power());
-				if ((*it)->get_sprite() != "^" && (*it2)->get_sprite() != "^" 
+				if ((*it)->get_sprite() != "🙭" && (*it2)->get_sprite() != "🙭" 
 					&& (*it)->get_sprite() != "." && (*it2)->get_sprite() != ".")	
 					this->_score += (*it)->get_is_enemy() ? (*it2)->get_attack_power() : (*it)->get_attack_power();
 			}
@@ -83,10 +83,11 @@ void	env::_spawn_script()
 void	env::play()
 {
 	int	key = 'p';
+
 	// tmp
 	/*this->_win_row = 42;
 	this->_win_col = 42;*/
-
+	this->set_begin(std::chrono::steady_clock::now());
 	this->print_map();
 	while (!keys::is_exit(key))
 	{

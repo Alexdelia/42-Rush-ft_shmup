@@ -46,6 +46,10 @@ void	env::set_win_col(const int win_col)
 { this->_win_col = win_col; }
 void	env::set_score(const size_t score)
 { this->_score = score; }
+void	env::set_begin(const std::chrono::steady_clock::time_point begin)
+{ this->_begin = begin; }
+
+
 
 int		env::get_win_row(void) const
 { return (this->_win_row); }
@@ -57,3 +61,5 @@ size_t	env::get_tick(void) const
 { return (this->_tick); }
 player	*env::get_player(void) const
 { return (this->_player); }
+std::chrono::steady_clock::time_point env::get_begin() const 
+{ return this->_begin; }

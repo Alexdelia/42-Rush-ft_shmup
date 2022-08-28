@@ -33,6 +33,7 @@ class env
 		size_t	_score;
 		std::unordered_set<entity *>	_entities;
 		player							*_player;
+		std::chrono::steady_clock::time_point _begin;
 
 	public:
 		env();
@@ -49,12 +50,15 @@ class env
 		size_t	get_tick() const;
 		size_t	get_score() const;
 		player	*get_player() const;
+		std::chrono::steady_clock::time_point get_begin() const;
 
 		void	set_win_row(const int row);
 		void	set_win_col(const int win_col);
 		void	set_score(const size_t score);
+		void	set_begin(const  std::chrono::steady_clock::time_point begin);
 
 		void	add_entity(entity *e);
+
 
 	private:
 		env(const env &src);
