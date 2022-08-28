@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 21:31:18 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 09:46:55 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 13:27:08 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,6 @@
 #include <unordered_set>
 #include <chrono>
 #include <thread>
-
-#define MIN_WIN_ROW	42
-#define MIN_WIN_COL	42
 
 class entity;
 
@@ -64,7 +61,11 @@ class env
 		void	_add_entities(const std::vector<entity *> &entities);
 		void	_delete_entity(entity *e);
 		void	_delete_entities();
-		void	_delete_out_of_bound();
+		void	_kill_out_of_bound();
+		void	_delete_killed();
 
+		void	_collision();
+
+		void	_spawn_script();
 		void	_handle_input(const int key);
 };

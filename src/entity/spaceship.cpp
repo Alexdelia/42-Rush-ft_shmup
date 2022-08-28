@@ -6,13 +6,15 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 09:45:02 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 10:37:06 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 13:33:37 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entity/spaceship.hpp"
+#include "graphic.hpp"
 
-spaceship::spaceship(const size_t col): entity(0, col, 2, 6, 200, "$", 0)
+spaceship::spaceship(const size_t col):
+	entity(0, col, 2, 6, 240, "$", CP_RED, true, true, 10, 90)
 {}
 
 spaceship::~spaceship()
@@ -21,11 +23,11 @@ spaceship::~spaceship()
 void	spaceship::process(env &e)
 {
 	if (e.get_tick() % this->_speed == 0)
-		this->set_row(this->get_row() + 1);
-	if (_action_counter == _action) {
+		this->_row++;
+	if (_action_counter >= _action) {
 		e.add_entity(new rocket(this->_row + 1, this->_col, 0));
 		this->_action_counter = 0;
-	} else
+	}
+	else
 		this->_action_counter++;
-
 }

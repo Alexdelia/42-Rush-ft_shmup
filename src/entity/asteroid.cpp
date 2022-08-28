@@ -6,13 +6,14 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 09:44:52 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 09:44:53 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 13:39:33 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "entity/asteroid.hpp"
 
-asteroid::asteroid(const size_t col): entity(0, col, 0, 2, 0, "*", 0)
+asteroid::asteroid(const size_t col):
+	entity(0, col, 0, 2, 0, "*", 0, false, true, 1, 90)
 {}
 
 asteroid::~asteroid()
@@ -21,5 +22,12 @@ asteroid::~asteroid()
 void	asteroid::process(env &e)
 {
 	if (e.get_tick() % this->_speed == 0)
-		this->set_row(this->get_row() + 1);
+		this->_row++;
+	if (e.get_tick() % 4 == 0)
+	{
+		if ((int)(e.get_tick() / 100) % 4 == 1)
+			this->_col--;
+		else if ((int)(e.get_tick() / 100) % 4 == 3)
+			this->_col++;
+	}
 }

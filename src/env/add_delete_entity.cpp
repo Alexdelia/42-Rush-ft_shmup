@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 12:16:16 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 10:34:13 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 13:42:30 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,25 @@ void	env::_delete_entities()
 	this->_entities.clear();
 }
 
-void	env::_delete_out_of_bound()
+void	env::_kill_out_of_bound()
 {
-	std::unordered_set<entity *>::iterator it = this->_entities.begin();
-
-	while (it != this->_entities.end())
+	for (std::unordered_set<entity *>::iterator it = this->_entities.begin(); it != this->_entities.end(); ++it)
 	{
 		if ((*it)->get_row() < 0
 			|| (*it)->get_row() >= this->_win_row
 			|| (*it)->get_col() < 0
 			|| (*it)->get_col() >= this->_win_col)
+			(*it)->set_hp(0);
+	}
+}
+
+void	env::_delete_killed()
+{
+	std::unordered_set<entity *>::iterator it = this->_entities.begin();
+
+	while (it != this->_entities.end())
+	{
+		if ((*it)->get_hp() <= 0)
 		{
 			delete *it;
 			it = this->_entities.erase(it);
