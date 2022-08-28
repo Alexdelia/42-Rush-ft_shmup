@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 21:31:18 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 15:42:41 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 20:02:20 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,6 @@ class env
 
 		void	_collision();
 
-		void	_spawn_script();
+		void	_spawn_script(bool *boss);
 		void	_handle_input(const int key);
 };
