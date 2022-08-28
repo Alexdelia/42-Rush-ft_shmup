@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 22:20:13 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 21:17:04 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 21:27:30 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,26 @@ void	env::_handle_input(const int key)
 	else if (key == ' ')
 		this->_player->shoot(*this);
 	else if (key == KEY_UP
-			&& this->_player->get_row() > 0)
-		this->_player->set_row(this->_player->get_row() - 1);
+			&& this->_player2->get_row() > 0)
+		this->_player2->set_row(this->_player2->get_row() - 1);
+	else if (key == KEY_DOWN
+			&& this->_player2->get_row() < this->_win_row - 1)
+		this->_player2->set_row(this->_player2->get_row() + 1);
+	else if (key == KEY_RIGHT)
+	{
+		if (this->_player2->get_col() == this->_win_col - 1)
+			this->_player2->set_col(0);
+		else
+			this->_player2->set_col(this->_player2->get_col() + 1);
+	}
+	else if (key == KEY_LEFT)
+	{
+		if (this->_player2->get_col() == 0)
+			this->_player2->set_col(this->_win_col - 1);
+		else
+			this->_player2->set_col(this->_player2->get_col() - 1);
+	}
+	else if (key == '0')
+		this->_player2->shoot(*this);
 	// maybe bomb
 }
