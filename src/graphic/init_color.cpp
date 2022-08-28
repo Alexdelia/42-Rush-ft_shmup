@@ -23,6 +23,7 @@ static void	create_colors_front(void)
 	init_color(C_PLAYER, r(128), r(142), r(255));
 	init_color(C_ROCKET, r(255), r(0), r(0));
 	init_color(C_HP, r(0), r(255), r(0));
+	init_color(C_DECOR, r(255), r(200), r(200));
 }
 
 static void	create_colors_back(void)
@@ -55,6 +56,7 @@ static void	main_pairs(void)
 	init_pair(CP_PLAYER, C_PLAYER, C_WINDOW);
 	init_pair(CP_ROCKET, C_ROCKET, C_WINDOW);
 	init_pair(CP_HP, C_WINDOW, C_HP);
+	init_pair(CP_DECOR, C_DECOR, C_WINDOW);
 }
 
 bool	graphic::init_color(void)

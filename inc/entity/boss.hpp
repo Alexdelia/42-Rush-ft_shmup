@@ -19,6 +19,10 @@ class boss: public entity
 	public:
 		boss(const int col);
 		virtual ~boss();
-	
 		virtual void	process(env &e);
+		int get_row() const;
+		int get_col() const;
+		int get_speed() const ;
+		int get_action_counter() const;
+
 };

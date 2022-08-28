@@ -59,3 +59,7 @@ void	boss::process(env &e)
 		this->_action_counter++;
 	}
 }
+int boss::get_row() const { return (this->_row); }
+int boss::get_col() const { return (this->_col); }
+int boss::get_speed() const { return (this->_speed); }
+int boss::get_action_counter() const { return (this->_action_counter); }

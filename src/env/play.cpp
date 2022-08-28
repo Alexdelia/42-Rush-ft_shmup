@@ -20,6 +20,7 @@
 #include "entity/spaceship.hpp"
 #include "entity/destroyer.hpp"
 #include "entity/boss.hpp"
+#include "entity/decor.hpp"
 
 static size_t rand_n_spawn(const int col, const size_t min, const size_t max)
 {
@@ -88,24 +89,27 @@ void	env::_spawn_script(bool *b_boss)
 	else if (now > 0 && *b_boss == false)
 	{
 		*b_boss = true;
-		this->add_entity(new boss(this->_win_col / 2));
-
-
-		this->add_entity(new decor(get_boss()->get_row(), get_boss->get_col(), get_boss()->get_speed(), "("));
-		this->add_entity(new decor(get_boss()->get_row(), get_boss->get_col(), get_boss()->get_speed(), "("));
-		this->add_entity(new decor(get_boss()->get_row(), get_boss->get_col(), get_boss()->get_speed(), "("));
-		this->add_entity(new decor(get_boss()->get_row(), get_boss->get_col(), get_boss()->get_speed(), "("));
-		this->add_entity(new decor(get_boss()->get_row(), get_boss->get_col(), get_boss()->get_speed(), "("));
-		this->add_entity(new decor(get_boss()->get_row(), get_boss->get_col(), get_boss()->get_speed(), "("));
-		this->add_entity(new decor(get_boss()->get_row(), get_boss->get_col(), get_boss()->get_speed(), "("));
-		this->add_entity(new decor(get_boss()->get_row(), get_boss->get_col(), get_boss()->get_speed(), "("));
-
-
-
-
-
 		this->_boss = new boss(this->_win_col / 2);
 		this->add_entity(this->_boss);
+
+		this->add_entity(new decor(_boss->get_row(), _boss->get_col() -1, _boss->get_speed(), "("));
+		this->add_entity(new decor(_boss->get_row(), _boss->get_col() -2, _boss->get_speed(), "-"));
+		this->add_entity(new decor(_boss->get_row(), _boss->get_col() -3, _boss->get_speed(), "-"));
+		this->add_entity(new decor(_boss->get_row(), _boss->get_col() -4, _boss->get_speed(), "@"));
+		this->add_entity(new decor(_boss->get_row(), _boss->get_col() -5, _boss->get_speed(), "-"));
+		this->add_entity(new decor(_boss->get_row(), _boss->get_col() -6, _boss->get_speed(), "-"));
+		this->add_entity(new decor(_boss->get_row(), _boss->get_col() -7, _boss->get_speed(), "@"));
+		this->add_entity(new decor(_boss->get_row(), _boss->get_col() -8, _boss->get_speed(), "-"));
+		this->add_entity(new decor(_boss->get_row(), _boss->get_col() -9, _boss->get_speed(), "-"));
+		this->add_entity(new decor(_boss->get_row(), _boss->get_col() +1, _boss->get_speed(), ")"));
+		this->add_entity(new decor(_boss->get_row(), _boss->get_col() +2, _boss->get_speed(), "-"));
+		this->add_entity(new decor(_boss->get_row(), _boss->get_col() +3, _boss->get_speed(), "-"));
+		this->add_entity(new decor(_boss->get_row(), _boss->get_col() +4, _boss->get_speed(), "@"));
+		this->add_entity(new decor(_boss->get_row(), _boss->get_col() +5, _boss->get_speed(), "-"));
+		this->add_entity(new decor(_boss->get_row(), _boss->get_col() +6, _boss->get_speed(), "-"));
+		this->add_entity(new decor(_boss->get_row(), _boss->get_col() +7, _boss->get_speed(), "@"));
+		this->add_entity(new decor(_boss->get_row(), _boss->get_col() +8, _boss->get_speed(), "-"));
+		this->add_entity(new decor(_boss->get_row(), _boss->get_col() +9, _boss->get_speed(), "-"));
 	}
 }
 
