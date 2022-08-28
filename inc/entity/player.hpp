@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   spaceship.cpp                                      :+:      :+:    :+:   */
+/*   player.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/28 09:45:02 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 10:37:06 by adelille         ###   ########.fr       */
+/*   Created: 2022/08/27 22:33:29 by adelille          #+#    #+#             */
+/*   Updated: 2022/08/28 09:28:20 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "entity/spaceship.hpp"
+#pragma once
 
-spaceship::spaceship(const size_t col): entity(0, col, 2, 6, 200, "$", 0)
-{}
+#include "entity.hpp"
 
-spaceship::~spaceship()
-{}
-
-void	spaceship::process(env &e)
+class player: public entity
 {
-	if (e.get_tick() % this->_speed == 0)
-		this->set_row(this->get_row() + 1);
-	if (_action_counter == _action) {
-		e.add_entity(new rocket(this->_row, this->_col));
-		this->_action_counter = 0;
-	} else
-		this->_action_counter++;
+	public:
+		player(const int row, const int col);
+		virtual ~player();
+	
+		virtual void	process(env &e);
 
-}
+		void			spawn_rocket(env &e);
+};

@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   spaceship.cpp                                      :+:      :+:    :+:   */
+/*   ally_rocket.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/28 09:45:02 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 10:37:06 by adelille         ###   ########.fr       */
+/*   Created: 2022/08/28 09:43:43 by adelille          #+#    #+#             */
+/*   Updated: 2022/08/28 09:44:17 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "entity/spaceship.hpp"
+#pragma once
 
-spaceship::spaceship(const size_t col): entity(0, col, 2, 6, 200, "$", 0)
-{}
+#include "entity.hpp"
 
-spaceship::~spaceship()
-{}
-
-void	spaceship::process(env &e)
+class ally_rocket: public entity
 {
-	if (e.get_tick() % this->_speed == 0)
-		this->set_row(this->get_row() + 1);
-	if (_action_counter == _action) {
-		e.add_entity(new rocket(this->_row, this->_col));
-		this->_action_counter = 0;
-	} else
-		this->_action_counter++;
-
-}
+	public:
+		ally_rocket(const int row, const int col);
+		virtual ~ally_rocket();
+	
+		virtual void	process(env &e);
+};

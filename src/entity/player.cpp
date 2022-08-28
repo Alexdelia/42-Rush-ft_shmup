@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   spaceship.cpp                                      :+:      :+:    :+:   */
+/*   player.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/28 09:45:02 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 10:37:06 by adelille         ###   ########.fr       */
+/*   Created: 2022/08/27 13:16:00 by adelille          #+#    #+#             */
+/*   Updated: 2022/08/28 09:48:15 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "entity/spaceship.hpp"
+#include "entity/player.hpp"
+#include "entity/ally_rocket.hpp"
+#include "graphic.hpp"
 
-spaceship::spaceship(const size_t col): entity(0, col, 2, 6, 200, "$", 0)
+player::player(const int row, const int col): entity(row - 2, (int)col / 2, 0, 0, 0, "^", CP_PLAYER)
 {}
 
-spaceship::~spaceship()
+player::~player()
 {}
 
-void	spaceship::process(env &e)
+void	player::process(env &e)
 {
-	if (e.get_tick() % this->_speed == 0)
-		this->set_row(this->get_row() + 1);
-	if (_action_counter == _action) {
-		e.add_entity(new rocket(this->_row, this->_col));
-		this->_action_counter = 0;
-	} else
-		this->_action_counter++;
+	(void)e;
+}
 
+void	player::spawn_rocket(env &e)
+{
+	e.add_entity(new ally_rocket(this->_row - 1, this->_col));
 }

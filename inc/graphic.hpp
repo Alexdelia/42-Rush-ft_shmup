@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 22:11:13 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/27 17:48:23 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 09:30:50 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@
 # define COLOR_B_64		231
 # define COLOR_B_2048	230
 
+# define C_PLAYER		229
+# define C_STAR			228
+
 # define CP_0			1
 # define CP_GREEN		3
 # define CP_MENU		5
@@ -42,6 +45,9 @@
 # define CP_EXIT		10
 # define CP_WINDOW		11
 # define CP_RED			12
+
+# define CP_PLAYER		13
+# define CP_STAR		14
 
 class score;
 
