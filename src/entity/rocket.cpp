@@ -13,9 +13,11 @@
 #include "entity/rocket.hpp"
 #include "graphic.hpp"
 
-rocket::rocket(const int row, const int col):
+rocket::rocket(const int row, const int col, const int dir):
 	entity(row, col, 1, 4, 2, "!", CP_ROCKET, false, true, 1, 10)
-{}
+{
+  _dir = dir;
+}
 
 rocket::~rocket()
 {}
@@ -23,7 +25,10 @@ rocket::~rocket()
 void	rocket::process(env &e)
 {
 	if (e.get_tick() % this->_speed == 0)
+  {
 		this->_row++;
+    this->_col += this->_dir;
+  }
 	if (_action_counter >= _action) {
 		this->_color_pair = CP_SCORE;
 		this->_action_counter = 0;

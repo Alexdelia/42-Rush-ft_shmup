@@ -6,19 +6,18 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 22:03:49 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 13:49:34 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 10:48:47 by cmenasse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "env.hpp"
 #include "shmup.hpp"
 #include "keys.hpp"
+#include "entity/player.hpp"
 #include "entity/star.hpp"
 #include "entity/asteroid.hpp"
 #include "entity/spaceship.hpp"
-#include "entity/player.hpp"
-
-#include <unistd.h>
+#include "entity/destroyer.hpp"
 
 static size_t rand_n_spawn(const int col, const size_t min, const size_t max)
 {
@@ -72,6 +71,10 @@ void	env::_spawn_script()
 		const size_t r_spaceships = rand_n_spawn(this->_win_col, 0, 15);
 		for (size_t i = 0; i < r_spaceships; i++)
 			this->add_entity(new spaceship(rand() % this->_win_col));
+      
+    const size_t r_destroyers = rand_n_spawn(this->_win_col, 0, 15);
+		for (size_t i = 0; i < r_destroyers; i++)
+			this->add_entity(new destroyer(rand() % this->_win_col));
 }
 
 void	env::play()

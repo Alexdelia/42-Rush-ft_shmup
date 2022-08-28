@@ -16,8 +16,12 @@
 
 class rocket: public entity
 {
+
+	private:
+		int _dir;
+
 	public:
-		rocket(const int row, const int col);
+		rocket(const int row, const int col, const int dir);
 		virtual ~rocket();
 	
 		virtual void	process(env &e);
