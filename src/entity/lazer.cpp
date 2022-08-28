@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   star.hpp                                           :+:      :+:    :+:   */
+/*   lazer.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/27 13:16:08 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 19:51:55 by adelille         ###   ########.fr       */
+/*   Created: 2022/08/28 19:50:55 by adelille          #+#    #+#             */
+/*   Updated: 2022/08/28 19:53:52 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "entity/lazer.hpp"
+#include "graphic.hpp"
 
-#include "entity.hpp"
+lazer::lazer(const int row, const int col):
+	entity(row, col, -1, 1, 0, " ", CP_HP, false, true, 1, 5)
+{}
 
-class star: public entity
+lazer::~lazer()
+{}
+
+void	lazer::process(env &e)
 {
-	public:
-		star(const int col);
-		virtual ~star();
-	
-		virtual void	process(env &e);
-};
+	(void)e;
+	this->_row++;
+}

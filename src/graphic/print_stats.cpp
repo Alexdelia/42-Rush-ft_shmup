@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 14:02:12 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 16:21:59 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 20:57:48 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 static void clean(const size_t start)
 {
-	for (size_t i = 0; i < 6; i++)
+	for (size_t i = 0; i < 4; i++)
 		mvaddstr(3 + i, start, STATS_W_S);
 }
 

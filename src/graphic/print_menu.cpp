@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 19:32:17 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 16:44:40 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 19:24:18 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,32 @@ void	graphic::print_frame(const int row, const int col, const int color)
 	attrset(A_NORMAL);
 }
 
+static void	print_menu_key(const env &e)
+{
+	move((e.get_win_row() - 1) / 2 + 4, (e.get_win_col() - strlen("[p/q]")) / 2);
+	attrset(A_NORMAL);
+	addch('[');
+	attrset(COLOR_PAIR(CP_PLAY) | A_BOLD);
+	addch('p');
+	attrset(A_NORMAL);
+	addch('/');
+	attrset(COLOR_PAIR(CP_EXIT) | A_BOLD);
+	addch('q');
+	attrset(A_NORMAL);
+	addch(']');
+}
+
 void	graphic::print_menu(const env &e)
 {
 	print_frame(e.get_win_row(), e.get_win_col(), CP_MENU);
+	attrset(A_BOLD | COLOR_PAIR(CP_PLAY));
+	mvprintw((e.get_win_row() - 1) / 2,
+		(e.get_win_col() - strlen(MSG_PLAY)) / 2, MSG_PLAY);
+	attrset(A_BOLD | COLOR_PAIR(CP_EXIT));
+	mvprintw((e.get_win_row() - 1) / 2 + 2,
+		(e.get_win_col() - strlen(MSG_EXIT)) / 2, MSG_EXIT);
+	print_menu_key(e);
 
-	pmw(e.get_win_row(), e.get_win_col(), "FT_SHMUP");
+	attrset(COLOR_PAIR(CP_PLAYER) | A_BOLD);
+	pmw(e.get_win_row() - 8, e.get_win_col(), "FT_SHMUP");
 }

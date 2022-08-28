@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 22:03:49 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 14:58:20 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 21:04:08 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include "entity/asteroid.hpp"
 #include "entity/spaceship.hpp"
 #include "entity/destroyer.hpp"
+#include "entity/boss.hpp"
 
 static size_t rand_n_spawn(const int col, const size_t min, const size_t max)
 {
@@ -34,6 +35,7 @@ void	env::print_map()
 		mvaddstr((*it)->get_row(), (*it)->get_col(), (*it)->get_sprite().c_str());
 		//attrset(A_NORMAL);
 	}
+	attrset(A_NORMAL);
 	graphic::print_stats(*this);
 	//refresh();
 }
@@ -60,31 +62,40 @@ void	env::_collision()
 	}
 }
 
-void	env::_spawn_script()
+void	env::_spawn_script(bool *b_boss)
 {
+	const int	now = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::steady_clock::now() - this->_begin).count();
 
-	
-		// spawn stars
-		const size_t r = rand_n_spawn(this->_win_col, 100, 200);
-		for (size_t i = 0; i < r; i++)
-			this->add_entity(new star(rand() % this->_win_col));
+	if (now < 0)
+	{
+	// spawn stars
+	/*const size_t r = rand_n_spawn(this->_win_col, 100, 200);
+	for (size_t i = 0; i < r; i++)
+		this->add_entity(new star(rand() % this->_win_col));*/
 
-		const size_t r_asteroids = rand_n_spawn(this->_win_col, 0, 20);
-		for (size_t i = 0; i < r_asteroids; i++)
-			this->add_entity(new asteroid(rand() % this->_win_col));
+	const size_t r_asteroids = rand_n_spawn(this->_win_col, 0, 20);
+	for (size_t i = 0; i < r_asteroids; i++)
+		this->add_entity(new asteroid(rand() % this->_win_col));
 
-		const size_t r_spaceships = rand_n_spawn(this->_win_col, 0, 15);
-		for (size_t i = 0; i < r_spaceships; i++)
-			this->add_entity(new spaceship(rand() % this->_win_col));
-      
+	const size_t r_spaceships = rand_n_spawn(this->_win_col, 0, 15);
+	for (size_t i = 0; i < r_spaceships; i++)
+		this->add_entity(new spaceship(rand() % this->_win_col));
+     
     const size_t r_destroyers = rand_n_spawn(this->_win_col, 0, 15);
 		for (size_t i = 0; i < r_destroyers; i++)
 			this->add_entity(new destroyer(rand() % this->_win_col));
+	}
+	else if (now > 0 && *b_boss == false)
+	{
+		*b_boss = true;
+		this->add_entity(new boss(this->_win_col / 2));
+	}
 }
 
 void	env::play()
 {
-	int	key = 'p';
+	int		key = 'p';
+	bool	boss = false;
 
 	// tmp
 	/*this->_win_row = 42;
@@ -102,7 +113,7 @@ void	env::play()
 		if (this->_player->get_hp() <= 0)
 			return ;
 		this->_delete_killed();
-		this->_spawn_script();
+		this->_spawn_script(&boss);
 
 		if (this->_player->get_hp() < 100 && this->_tick % 4 == 0)
 		{
