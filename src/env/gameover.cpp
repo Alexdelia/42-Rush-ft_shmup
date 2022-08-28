@@ -6,7 +6,7 @@
 /*   By: adelille <adelille@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 15:43:06 by adelille          #+#    #+#             */
-/*   Updated: 2022/08/28 22:05:59 by adelille         ###   ########.fr       */
+/*   Updated: 2022/08/28 22:12:24 by adelille         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,15 @@
 
 void	env::gameover()
 {
-	this->get_player()->set_hp(0);
+	if (this->_player->get_hp() <= 0)
+		this->_player->set_hp(0);
 	erase();
 	this->print_map();
 	attrset(COLOR_PAIR(CP_PLAYER) | A_BOLD);
-	graphic::pmw(this->_win_row, this->_win_col, "GAME OVER");
+	if (this->_player->get_hp() > 0)
+		graphic::pmw(this->_win_row, this->_win_col, "YOU WIN");
+	else
+		graphic::pmw(this->_win_row, this->_win_col, "GAME OVER");
 	int	key = 'z';
 	while (!keys::is_exit(key))
 	{
